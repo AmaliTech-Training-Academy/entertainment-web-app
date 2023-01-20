@@ -1,3 +1,5 @@
+//Getting public and protected resources from client
+
 const { authJwt } = require("../middlewares")
 const controller = require("../controllers/user.controller")
 const { verifyToken } = require("../middlewares/authJwt")

@@ -1,10 +1,12 @@
+
+// handling signup, signin and signout actions
 const config = require("../Config/auth.config");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
 
-let jwt = require("jsonwebtoken");
-let bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const { user } = require("../models");
 
 exports.signup = (req, res) => {

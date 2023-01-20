@@ -1,3 +1,4 @@
+//importing and initializing necessary modules and routes, and listening for connections
 require('dotenv').config()
 const express = require('express')
 const cookieSession = require('cookie-session')
@@ -5,6 +6,7 @@ const cors = require('cors')
 const db = require("./models")
 const dbConfig = require('./Config/db.config')
 const { count } = require('./models/user.model')
+const { mongoose } = require('./models')
 const Role = db.role
 
 // routes
@@ -12,19 +14,69 @@ const Role = db.role
 // require('./app/routes/user.routes')(app);
 
 
-db.mongoose
-    .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => {
-        console.log("Successfully connect to MongoDB.")
-        initial()
-    })
-    .catch(err => {
-        console.error("Connection error", err)
-        process.exit()
-    })
+
+const app = express()
+
+//routes
+
+
+let corsOptions = {
+    origin: "http://localhost:8081" //request parsing
+}
+
+app.use(cors(corsOptions))
+
+//parse requests of content-type - application/json
+app.use(express.json())
+
+//parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true}))
+
+app.use(cookieSession({
+    name: "EntertainmentWebApp-session",
+    secret: "COOKIE_SECRET",
+    httpOnly: true
+}))
+
+
+
+
+//Creating the routes
+app.get("/", (req, res) => {
+    res.json({message: "Welcome to Entertainment Web App"})
+})
+
+//setting port and listening for requests
+const PORT = process.env.PORT || 8080
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+})
+
+
+//------------------
+
+
+
+// db.mongoose
+//     .connect(`mongodb://localhost:27017/entertainment_db`, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     })
+//     .then(() => {
+//         console.log("Successfully connect to MongoDB.")
+//         initial()
+//     })
+//     .catch(err => {
+//         console.error("Connection error", err)
+//         process.exit()
+//     })
+
+mongoose.connect(`mongodb://localhost:27017/entertainment_db`)
+.then(() => {
+    console.log("mongodb connected...")
+}).catch(() => {
+    console.log("failed to...")
+})
 
     function initial(){
         Role.estimatedDocumentCount((err, count) => {
@@ -59,34 +111,3 @@ db.mongoose
             }
         })
     }
-const app = express()
-
-let corsOptions = {
-    origin: "http://localhost:8081" //request parsing
-}
-
-app.use(cors(corsOptions))
-
-//parse requests of content-type - application/json
-app.use(express.json())
-
-//parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true}))
-
-app.use(cookieSession({
-    name: "Entertainment web app",
-    secret: "COOKIE_SECRET",
-    httpOnly: true
-}))
-
-
-//Creating the routes
-app.get("/", (req, res) => {
-    res.json({message: "Welcome to Entertainment Web App"})
-})
-
-//setting port and listening for requests
-const PORT = process.env.PORT || 8080
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})

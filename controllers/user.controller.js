@@ -1,3 +1,4 @@
+//return public and protected content
 exports.allAccess = (req, res) => {
     res.status(200).send("Public Content.")
 }
