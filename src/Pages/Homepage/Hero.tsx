@@ -1,6 +1,6 @@
-import Input from "../Components/Input"
+import Input from "../../Components/Input"
 import './Hero.css'
-import Trending from '../data.json'
+import Trending from '../../data.json'
 
 const Hero = () => {
     return (

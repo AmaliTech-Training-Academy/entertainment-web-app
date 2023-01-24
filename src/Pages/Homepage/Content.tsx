@@ -1,17 +1,14 @@
 import './Content.css'
-import Hero from '../../Components/Hero';
+import Hero from '../Homepage/Hero';
+import Options from './Recommended';
 
 
 const Content = () =>{
     return (
         <div className="content">
             <Hero/>
-            <div className="recommended">
-            <h1>
-                Recommended
-            </h1>
+            <Options/>
             </div>
-        </div>
     )
 }
 
