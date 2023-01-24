@@ -1,113 +1,148 @@
-//importing and initializing necessary modules and routes, and listening for connections
-require('dotenv').config()
-const express = require('express')
-const cookieSession = require('cookie-session')
-const cors = require('cors')
-const db = require("./models")
-const dbConfig = require('./Config/db.config')
-const { count } = require('./models/user.model')
-const { mongoose } = require('./models')
-const Role = db.role
-
-// routes
-// require('./app/routes/auth.routes')(app);
-// require('./app/routes/user.routes')(app);
-
-
-
-const app = express()
-
-//routes
-
-
-let corsOptions = {
-    origin: "http://localhost:8081" //request parsing
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
 
-app.use(cors(corsOptions))
+const express = require("express");
+const app = express();
+const bcrypt = require("bcrypt");
+const LocalStrategy = require("passport-local");
+const passport = require("passport");
+const flash = require("express-flash");
+const session = require("express-session");
+const methodOverride = require("method-override");
 
-//parse requests of content-type - application/json
-app.use(express.json())
+const { configurePassport } = require("./passport-config");
 
-//parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true}))
+const users = require("./users");
 
-app.use(cookieSession({
-    name: "EntertainmentWebApp-session",
-    secret: "COOKIE_SECRET",
-    httpOnly: true
-}))
+/*
+const initializePassport = require("./passport-config");
+const users = [
+  {
+    name: "emma@gmail.com",
+    password: "$2b$10$bhBcU68D.8vPkRuhGxVBWu0Yhtcm1LeHB/9rwctHs0S5ILL4bkDOi",
+  },
+  {
 
+  }
+];
 
+initializePassport(
+  passport,
+  (email) => users.find((user) => user.email === email),
+  (id) => users.find((user) => user.id === id)
+);
+*/
+// configurePassport();
 
+async function verify(email, password, done) {
+  console.log("login: ", email);
+  console.log(users);
+  const getUserByEmail = (email) => users.find((user) => user.email === email);
 
-//Creating the routes
-app.get("/", (req, res) => {
-    res.json({message: "Welcome to Entertainment Web App"})
-})
+  const user = getUserByEmail(email);
+  console.log(`user: ${user}`);
+  if (user === null) {
+    return done(null, false, { message: "No user with that email" });
+  }
 
-//setting port and listening for requests
-const PORT = process.env.PORT || 8080
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
-
-
-//------------------
-
-
-
-// db.mongoose
-//     .connect(`mongodb://localhost:27017/entertainment_db`, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     })
-//     .then(() => {
-//         console.log("Successfully connect to MongoDB.")
-//         initial()
-//     })
-//     .catch(err => {
-//         console.error("Connection error", err)
-//         process.exit()
-//     })
-
-mongoose.connect(`mongodb://localhost:27017/entertainment_db`)
-.then(() => {
-    console.log("mongodb connected...")
-}).catch(() => {
-    console.log("failed to...")
-})
-
-    function initial(){
-        Role.estimatedDocumentCount((err, count) => {
-            if(!err && count === 0){
-                new Role({
-                    name: "user"
-                }).save(err => {
-                    if(err){
-                        console.log("error", err)
-                    }
-                    console.log("added 'user' to roles collection")
-                })
-
-                new Role({
-                    name: "moderator"
-                }).save(err => {
-                    if(err){
-                        console.log("error", err)
-                    }
-                    console.log("added 'admin' to roles collection")
-                })
-
-                new Role({
-                    name: "admin"
-                }).save(err => {
-                    if(err){
-                        console.log("error", err)
-                    }
-
-                    console.log("added 'admin' to roles collection")
-                })
-            }
-        })
+  try {
+    if (user && (await bcrypt.compare(password, user.password))) {
+      return done(null, user);
+    } else {
+      return done(null, false, { message: "Password or email incorrect" });
     }
+  } catch (e) {
+    return done(e);
+  }
+}
+
+// (email) => users.find((user) => user.email === email),
+const getUserById = (id) => users.find((user) => user.id === id);
+
+passport.serializeUser((user, done) => done(null, user.id));
+passport.deserializeUser((id, done) => {
+  return done(null, getUserById(id));
+});
+
+app.set("view-engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
+app.use(flash());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+passport.use(new LocalStrategy({ usernameField: "email" }, verify));
+app.use(passport.initialize());
+app.use(passport.session());
+// app.use(methodOverride("_method"));
+
+app.get("/", checkAuthenticated, (req, res) => {
+  res.render("index.ejs", { name: req.user.name });
+});
+
+app.get("/login", checkNotAuthenticated, (req, res) => {
+  res.render("login.ejs");
+});
+
+app.post(
+  "/login",
+  checkNotAuthenticated,
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+  })
+);
+
+app.get("/register", checkNotAuthenticated, (req, res) => {
+  res.render("register.ejs");
+});
+
+app.post("/register", checkNotAuthenticated, async (req, res) => {
+  try {
+    console.log("Register");
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    users.push({
+      id: Date.now().toString(),
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword,
+    });
+    console.log(users);
+    res.redirect("/login");
+  } catch {
+    res.redirect("/register");
+  }
+});
+
+app.post("/logout", (req, res) => {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+  // res.redirect("/login");
+});
+
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+
+  res.redirect("/login");
+}
+
+function checkNotAuthenticated(req, res, next) {
+  console.log("body:", req.body);
+  if (req.isAuthenticated()) {
+    console.log("Auth");
+    return res.redirect("/");
+  }
+  console.log("Not Auth");
+  next();
+}
+
+app.listen(8080);
