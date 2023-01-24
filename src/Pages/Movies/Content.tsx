@@ -1,11 +1,14 @@
+import Input from '../../Components/Input';
 import './Content.css'
-import Hero from '../../Components/Hero';
+
+
 
 
 const Content = () =>{
     return (
         <div className="content">
-            <Hero/>
+            <Input/>
+            <h1>Movies</h1>
         </div>
     )
 }

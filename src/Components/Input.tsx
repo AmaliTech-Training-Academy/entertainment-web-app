@@ -4,7 +4,7 @@ const Input = () => {
     return (
         <form>
             <div className='search'></div>
-            <input type="text" placeholder="Search for movies or TV series"/>
+            <input type="text" placeholder="Search for movies "/>
         </form>
     )
 }
