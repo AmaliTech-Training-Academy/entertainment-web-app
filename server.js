@@ -10,7 +10,9 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const PORT = process.env.SERVER_PORT
+const collection = require("./database/mongodb");
+
+const PORT = process.env.SERVER_PORT;
 
 const { configurePassport } = require("./passport-config");
 
@@ -46,7 +48,6 @@ passport.deserializeUser((id, done) => {
   return done(null, getUserById(id));
 });
 
-
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
@@ -62,11 +63,13 @@ app.use(passport.session());
 // app.use(methodOverride("_method"));
 
 app.get("/", checkAuthenticated, (req, res) => {
-  res.render("index.ejs", { name: req.user.name });
+  // res.render("index.ejs", { name: req.user.name });
+  res.status(200).json({message: 'Home Page'})
 });
 
 app.get("/login", checkNotAuthenticated, (req, res) => {
-  res.render("login.ejs");
+  // res.render("login.ejs");
+  res.status(200).json({message: "Login"})
 });
 
 app.post(
@@ -79,31 +82,35 @@ app.post(
   })
 );
 
-// app.get("/register", checkNotAuthenticated, (req, res) => {
-//   res.render("register.ejs");
-// });
 
 app.post("/signup", checkNotAuthenticated, async (req, res) => {
   try {
     // console.log("Register");
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword,
-    });
-    // console.log(users);
-    res.redirect("/login");
+    if (req.body.password === req.body.conpassword) {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      users.push({
+        id: Date.now().toString(),
+        email: req.body.email,
+        password: hashedPassword,
+      });
+      await collection.insertMany([users]);
+      // console.log(users);
+      res.redirect("/login");
+    } else {
+      res.send("Unmatched Password");
+    }
   } catch {
     res.redirect("/signup");
+    res.status(200).json({message: "signup"})
   }
 });
 
 app.post("/logout", (req, res) => {
-  req.logout(function(err) {
-    if (err) { return next(err); }
-    res.redirect('/');
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
   });
   // res.redirect("/login");
 });
@@ -119,14 +126,14 @@ function checkAuthenticated(req, res, next) {
 function checkNotAuthenticated(req, res, next) {
   console.log("body:", req.body);
   if (req.isAuthenticated()) {
-    console.log("Auth");
+    // console.log("Auth");
     return res.redirect("/");
   }
-  console.log("Not Auth");
+  // console.log("Not Auth");
   next();
 }
 
-app.listen(PORT, function(err){
-  if (err) console.log("Error in server setup")
+app.listen(PORT, function (err) {
+  if (err) console.log("Error in server setup");
   console.log("Server listening on Port", PORT);
-})
+});
