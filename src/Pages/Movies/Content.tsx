@@ -1,11 +1,11 @@
 import './Content.css'
-import Hero from '../../Components/Hero';
-
+import '../../Components/Input'
+import Input from '../../Components/Input';
 
 const Content = () =>{
     return (
         <div className="content">
-            <Hero/>
+            {/* <Input/> */}
         </div>
     )
 }
