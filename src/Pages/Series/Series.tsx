@@ -7,7 +7,6 @@ const Series = () => {
     <main>
         <Navbar/>
         <Content/>
-        
     </main>
         )
 }
