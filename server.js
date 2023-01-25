@@ -10,30 +10,11 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
+const PORT = process.env.SERVER_PORT
 
 const { configurePassport } = require("./passport-config");
 
 const users = require("./users");
-
-/*
-const initializePassport = require("./passport-config");
-const users = [
-  {
-    name: "emma@gmail.com",
-    password: "$2b$10$bhBcU68D.8vPkRuhGxVBWu0Yhtcm1LeHB/9rwctHs0S5ILL4bkDOi",
-  },
-  {
-
-  }
-];
-
-initializePassport(
-  passport,
-  (email) => users.find((user) => user.email === email),
-  (id) => users.find((user) => user.id === id)
-);
-*/
-// configurePassport();
 
 async function verify(email, password, done) {
   console.log("login: ", email);
@@ -65,7 +46,7 @@ passport.deserializeUser((id, done) => {
   return done(null, getUserById(id));
 });
 
-app.set("view-engine", "ejs");
+
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
@@ -98,13 +79,13 @@ app.post(
   })
 );
 
-app.get("/register", checkNotAuthenticated, (req, res) => {
-  res.render("register.ejs");
-});
+// app.get("/register", checkNotAuthenticated, (req, res) => {
+//   res.render("register.ejs");
+// });
 
-app.post("/register", checkNotAuthenticated, async (req, res) => {
+app.post("/signup", checkNotAuthenticated, async (req, res) => {
   try {
-    console.log("Register");
+    // console.log("Register");
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     users.push({
       id: Date.now().toString(),
@@ -112,10 +93,10 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     });
-    console.log(users);
+    // console.log(users);
     res.redirect("/login");
   } catch {
-    res.redirect("/register");
+    res.redirect("/signup");
   }
 });
 
@@ -145,4 +126,7 @@ function checkNotAuthenticated(req, res, next) {
   next();
 }
 
-app.listen(8080);
+app.listen(PORT, function(err){
+  if (err) console.log("Error in server setup")
+  console.log("Server listening on Port", PORT);
+})
