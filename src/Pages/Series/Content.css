@@ -1,7 +1,13 @@
 .content{
-    border: 1px solid white;
+    /* margin: 0; */
+    /* padding: 0; */
 }
-
-/* .content h1{
-    font-size: 2rem
-} */
+@media only screen and (max-width: 420px) and (min-width:320px){
+    .content{
+        margin-left: 1.5rem;
+    }
+    .content h2{
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+}
