@@ -1,6 +1,5 @@
 import Navbar from "../../Components/Nav";
 import Content from "./Content";
-import './Movies.css'
 
 const Movies = () => {
     return(

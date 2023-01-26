@@ -76,3 +76,86 @@ opacity: 0.5;
 .recommended-items .option .item-info .item-title{
 margin: 0;
 }
+
+@media screen and (max-width:850px) {
+    .recommended{
+        /* border: 1px solid white; */
+        padding: 0;
+        /* width: 97.5%; */
+    }
+    
+    .recommended-items{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        position: relative;
+        gap: 2rem;
+    
+    }
+    
+    .recommended-items .option{
+        /* border: 1px solid white; */
+        width: 100%;
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .recommended-items .bookmark-icon{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        /* border: 1px solid white; */
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: #10141E;
+        opacity: 0.5;
+        z-index: 2;
+    }
+    
+    .recommended-items .bookmark-icon svg{
+        stroke: #ffffff;
+        /* fill: #ffffff; */
+    }
+    
+    .recommended-items .option .image img{
+    width: 100%;
+    height: 10.875rem;
+    border-radius: .5rem;
+    }
+    
+    .recommended-items .option .image img:hover{
+    opacity: 0.5;
+    }
+    
+    .recommended-items .option .item-info .about{
+        /* border: 1px solid white; */
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        /* box-shadow: 5px 10px 18px red; */
+    }
+    
+    .recommended-items .option .item-info .about img{
+        width: 0.75rem;
+        height: 0.75rem;
+        margin-right: 0.4rem;
+        border-radius: 0;
+    }
+    
+    .recommended-items .option .item-info .about .oval{
+        width: 3px;
+        height: 3px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        margin: 0 .5rem;
+    }
+    
+    .recommended-items .option .item-info .item-title{
+    margin: 0;
+    }
+    
+    
+}

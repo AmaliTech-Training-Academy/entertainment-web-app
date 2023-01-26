@@ -1,5 +1,4 @@
 import Navbar from '../../Components/Nav';
-import './Series.css'
 
 const Series = () => {
     return(

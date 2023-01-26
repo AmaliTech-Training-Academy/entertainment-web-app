@@ -24,8 +24,8 @@ nav{
     height: 1.5rem;
     background: url('/public/assets/logo.svg');
     margin-bottom: 4.7rem;
-    
 }
+
 nav .nav-items ul{
     /* border: 1px solid white; */
     color: aliceblue;
@@ -68,5 +68,64 @@ nav .user-avatar{
     background-size: cover;
     margin-top: auto;
     border-radius: 50%;
+}
+
+
+@media screen and (max-width: 850px) {
+    nav{
+    /* border: 1px solid white; */
+    max-width: 100%;
+    height: 4.5rem;
+    /* padding: 2rem; */
+    border-radius: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #161D2F;
+} 
+
+.nav-items {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    justify-content: space-between;
+    /* align-items: center; */
+    width: 70%;
+}
+
+.nav-items .logo{
+    /* border: 1px solid white; */
+    width: 2rem;
+    height: 1.5rem;
+    margin-bottom: 0;
+}
+
+nav .nav-items ul{
+    /* border: 1px solid white; */
+    color: aliceblue;
+    list-style: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+nav .user-avatar{
+    /* border: 1px solid white; */
+    background: url('/public/assets/image-avatar.png');
+    width: 2.5rem;
+    height: 2.5rem;
+    /* align-self: center; */
+    background-size: cover;
+    margin-top: 0;
+    border-radius: 50%;
+}
+    
 }
 
