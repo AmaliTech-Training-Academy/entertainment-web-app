@@ -57,17 +57,20 @@ header .trending .trending-items div:nth-of-type(5){
 }
 
 
-header .trending .trending-items .trend img{
+header .trending .trending-items .trend .large{
     height: 14.4rem;
     border-radius: .5rem;
 }
 
-header .trending .trending-items .trend img:hover{
-    opacity: 0.5;
+
+header .trending .trending-items .trend .small{
+    display: none;
 }
 
 
-
+header .trending .trending-items .trend img:hover{
+    opacity: 0.5;
+}
 
 header .trending .trending-items .trend .item-info{
     /* border: 1px solid white; */
@@ -139,11 +142,6 @@ header .trending .trending-items .trend .item-info .oval{
         border-radius: 50%;
     }
     
-    /* .trending-items .bookmark-icon svg{
-        margin: 0 auto;
-    } */
-    
-    
     
     header .trending .trending-items .trend .item-info{
         /* border: 1px solid white; */
@@ -185,7 +183,131 @@ header .trending .trending-items .trend .item-info .oval{
         line-height: 1.8rem;
         /* border: 1px solid white; */
         margin: 0;
+    }    
+}
+
+@media screen and (max-width:440px) {
+    header{
+        /* border: 1px solid white; */
+        width: 122%;
+        overflow-x: hidden;
+        margin-bottom: 2.5rem;
     }
 
+    .trending{
+        width: 100%;
+    }
+    
+    
+    header .trending h1{
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: -0.5px;
+    }
+    
+    .trending-items .bookmark-icon{
+        border: 1px solid white;
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+    
+    /* .trending-items .bookmark-icon svg{
+        margin: 0 auto;
+    } */
+    
+    header .trending .trending-items{
+        /* border: 1px solid white; */
+        display: flex;
+        position: relative;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        justify-content: space-between;
+    }
+    
+    header .trending .trending-items .trend{
+        /* border: 1px solid white; */
+        /* width: 30rem; */
+        margin-right: 1rem;
+        position: relative;
+    }
+    
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    header .trending .trending-items div:nth-of-type(5){
+        margin-right: 0;
+    }
+    
+    
+    header .trending .trending-items .trend .large{
+        display: none;
+    }
+    
+    
+    header .trending .trending-items .trend .small{
+        display: block;
+        height: 8.75rem;
+        width: 15rem;
+        border-radius: .5rem;
+    }
+    
+    
+    header .trending .trending-items .trend img:hover{
+        opacity: 0.5;
+    }
+    
+    header .trending .trending-items .trend .item-info{
+        /* border: 1px solid white; */
+        position: absolute;
+        top: 5rem;
+        left: 1rem;
+        padding: 0;
+        /* width: 20rem; */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    
+    header .trending .trending-items .trend .item-info .about{
+        display: flex;
+        align-items: center;
+        /* border: 1px solid white; */
+        margin-bottom: 3px;
+    }
+    
+    header .trending .trending-items .trend .item-info .about img{
+        width: 0.75rem;
+        height: 0.75rem;
+        margin-right: 0.4rem;
+        border-radius: 0;
+    }
+    
+    
+    header .trending .trending-items .trend .item-info .oval{
+        width: 3px;
+        height: 3px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        margin: 0 .5rem;
+    }
+    
+    .trending-items .trend .item-info .item-title{
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        /* border: 1px solid white; */
+        margin: 0;
+    }
+    
     
 }
