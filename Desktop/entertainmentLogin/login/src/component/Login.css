@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color--semi-blue-black: #161d2f;
+  --color--red: #fc4747;
+  --color--white: #ffffff;
+}
+
+.container {
+  width: 30%;
+  height: 25rem;
+  background: var(--color--semi-blue-black);
+  border-radius: 1.5rem;
+}
+
+.container h4{
+    color: var(--color--white);
+    font-size: 3rem;
+}
+
+.container input{
+    border: 1px solid var(--color--white);
+    height: 1rem;
+    background: none;
+}

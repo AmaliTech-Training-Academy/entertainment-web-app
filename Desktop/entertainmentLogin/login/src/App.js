@@ -1,9 +1,10 @@
-import './App.css';
+import React from 'react';
+import Login from './component/Login'; 
 
 function App() {
   return (
     <div className="App">
-      <login></login>
+      <Login />
     </div>
   );
 }
