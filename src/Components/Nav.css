@@ -107,44 +107,51 @@ nav .user-avatar{
 @media only screen and (max-width:420px) and (min-width:320px) {
     
     nav{
-        max-width: 50rem;
+        max-width: 400rem;
         height: 4.5rem;
         display: flex;
         flex-direction: row;
-        margin-top: -2rem;
+        margin-top: -2rem; 
         margin-left: -2rem;
         border-radius: 0;
-       
+        margin: -2rem;
     }
     
     .nav-items {
         flex-direction:row;
     }
+   
     
-    .nav-items .logo{
-        width: 1.5rem;
-        height: 1.25rem;
-        margin-top: 4.5rem;
-        margin-left: -1rem;
-        
-    }
     nav .nav-items ul{
-        width: 7.75rem;
+        width: 8.75rem;
         height: 1.25rem;
-        display: flex;
         flex-direction: row; 
-        margin-left: 5rem;
+        margin-left: 3.8rem;
         
     }
+     
+    .nav-items .logo{
+        margin-top: 4.5rem;
+        width: 2rem;
+    }
+    nav .user-avatar{
+        margin-top: 0;
+        margin-left: 2.5rem;
+    
+    }
+    nav .nav-items ul svg{
+        width: 1.2rem;
+        margin-top: 0;
+        /* margin-left: .5rem; */
+    }
+}
+
+/* @media only screen and (max-width: 375px) {
+
     nav .user-avatar{
         width: 1.5rem;
         height: 1.5rem;
         margin-top: 0;
-        margin-left: 4.5rem;
-    
+        margin-left:4.5rem;
     }
-    nav .nav-items ul svg {
-        width: 1.2rem;
-        height: 1.28rem;
-    }
-}
+} */

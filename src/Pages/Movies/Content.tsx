@@ -9,7 +9,7 @@ const Content = () =>{
     return (
         <div className="content">
             <Input/>
-            <h1>Movies</h1>
+            <h2>Movies</h2>
             <Video/>
         </div>
     )

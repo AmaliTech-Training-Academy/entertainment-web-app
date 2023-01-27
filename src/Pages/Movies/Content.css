@@ -1,3 +1,16 @@
 /* .content{
     border: 1px solid white;
 } */
+
+@media only screen and (max-width: 420px) and (min-width:320px) {
+    .content{
+        margin-left: 0;
+    }
+    .content h2{
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-left: -3rem;
+        
+    }
+
+}
