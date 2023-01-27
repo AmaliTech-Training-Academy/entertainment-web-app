@@ -8,11 +8,19 @@
     grid-template-columns: auto auto auto auto;
 }
 
-.image img {
+.image .large {
     width: 17.5rem;
     border-radius: .5rem;
     margin-top: -1rem;
     cursor: pointer;
+}
+
+.image .medium {
+    display: none;
+}
+
+.image .small {
+    display: none;
 }
 
 .about {
@@ -45,7 +53,7 @@
 .bookmark-icon{
     /* border: 1px solid white; */
     position: relative;
-    top: 6rem;
+    top: 2rem;
     left: 14.5rem;
     width: 2rem;
     height: 2rem;
@@ -71,10 +79,17 @@ img:hover{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
-    .image img{
+    .image .medium{
+        display: inline;
         width: 13.5rem;
         border-radius: .5rem;
         margin-top: -1rem;
+    }
+    .image .large{
+        display: none;
+    }
+    .image .small{
+        display: none;
     }
     .series-items .bookmark-icon{
         top: 2rem;
@@ -92,14 +107,24 @@ img:hover{
         padding: 0;
         margin: 0;
     }
+    .series{
+        margin-left: -.7rem;
+    }
     .series-items{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    .image img{
+    .image .small{
+        display: inline;
         width: 10.25rem;
         border-radius: .5rem;
         margin-top: -1rem;
+    }
+    .image .medium{
+        display: none;
+    }
+    .image .large{
+        display: none;
     }
     .series-items .bookmark-icon{
         top: 1.5rem;

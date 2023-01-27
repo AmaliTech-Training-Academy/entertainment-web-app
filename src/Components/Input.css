@@ -50,6 +50,9 @@ input[type=text]:hover{
         background-position: center;
         /* margin-right: 1.5rem; */
     }
+    form{
+        margin-left: -.7rem;
+    }
     input{
         font-weight: 300;
         font-size: 1rem;
