@@ -48,7 +48,16 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    z-index: 2;
 }
+.movie-items .bookmark-icon:hover{
+    cursor: pointer;
+    background: #fff;
+}
+.movie-items .bookmark-icon:hover  path{
+    stroke: #000;
+}
+
  img:hover{
     opacity: 0.5;
     cursor: pointer;
@@ -59,6 +68,27 @@
 .image .small{
     display: none;
 }
+.play-items {
+    position: relative;
+    top: -7rem;
+    left: 5rem;
+    border-radius: 2rem;
+    width: 7.313rem;
+    height: 3.5rem;
+    background-color: rgb(225,225,225, 0.5);
+    /* border: solid 1px #fff; */
+    mix-blend-mode: normal;
+    z-index: -1;
+}
+.play-icon{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 0.5rem;
+    /* z-index: -3; */
+}
+
+
 
 @media only screen and (max-width:820px) and (min-width:480px) {
     main{
@@ -97,6 +127,11 @@
         align-items: center;
         border-radius: 50%;
     }
+    .play-items{
+        position: relative;
+        top: -5.5rem;
+        left: 2rem;
+    }
      
 }
 
@@ -133,7 +168,7 @@
     .movie-items .bookmark-icon{
         /* border: 1px solid white; */
         position:relative;
-        top: 2rem;
+        top: 0.5rem;
         left: 7.5rem;
         width: 2rem;
         height: 2rem;
@@ -152,5 +187,14 @@
         margin-top: .12rem;
 
     }
+    .play-items{
+        position: relative;
+        top: -5.5rem;
+        left: 1rem;
+        /* width: 5rem;
+        height: 2rem; */
+    }
+    
+    
      
 }
