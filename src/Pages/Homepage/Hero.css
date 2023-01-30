@@ -189,7 +189,7 @@ header .trending .trending-items .trend .item-info .oval{
 @media screen and (max-width:440px) {
     header{
         /* border: 1px solid white; */
-        width: 122%;
+        width: 96vw;
         overflow-x: hidden;
         margin-bottom: 2.5rem;
     }
@@ -207,10 +207,9 @@ header .trending .trending-items .trend .item-info .oval{
     }
     
     .trending-items .bookmark-icon{
-        border: 1px solid white;
         position: absolute;
-        top: 1rem;
-        right: 1.5rem;
+        top: .5rem;
+        right: .5rem;
         width: 2rem;
         height: 2rem;
         background: rgba(0, 0, 0, 0.5);
@@ -269,7 +268,7 @@ header .trending .trending-items .trend .item-info .oval{
     header .trending .trending-items .trend .item-info{
         /* border: 1px solid white; */
         position: absolute;
-        top: 5rem;
+        top: 5.3rem;
         left: 1rem;
         padding: 0;
         /* width: 20rem; */
@@ -283,6 +282,10 @@ header .trending .trending-items .trend .item-info .oval{
         align-items: center;
         /* border: 1px solid white; */
         margin-bottom: 3px;
+        font-size: 0.7rem;
+        line-height: 1.125rem;
+        opacity: 0.75;
+        position: relative;
     }
     
     header .trending .trending-items .trend .item-info .about img{
@@ -300,14 +303,38 @@ header .trending .trending-items .trend .item-info .oval{
         border-radius: 50%;
         margin: 0 .5rem;
     }
+
+    /* .item-info .about .oval:nth-of-type(2){
+        display: none;
+    } */
+
+    /* .item-info .about span:nth-of-type(3){
+        position: absolute;    
+        right: -7.3rem;
+        bottom: -1rem;
+        padding: 0.125rem .5rem;
+        font-size: .8rem;
+        line-height: 1rem;
+        text-align: center;
+        border-radius: 10.5px;
+        background: rgba(255, 255, 255, 0.15);
+} */
     
     .trending-items .trend .item-info .item-title{
         font-weight: 500;
-        font-size: 1.5rem;
-        line-height: 1.8rem;
+        font-size: .9rem;
+        line-height: 1.2rem;
         /* border: 1px solid white; */
         margin: 0;
     }
-    
-    
+}
+
+
+@media screen and (max-width: 375px) {
+    header{
+        /* border: 1px solid white; */
+        width: 100vw;
+        overflow-x: hidden;
+        margin-bottom: 2.5rem;
+    }
 }
