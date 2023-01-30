@@ -43,7 +43,10 @@
   background: none;
   margin: 0 2rem 2rem;
   padding: 0.8rem 1.2rem;
+  cursor: pointer;
 }
+
+
 
 .container button {
   width: 80%;
