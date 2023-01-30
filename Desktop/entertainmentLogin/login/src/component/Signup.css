@@ -18,10 +18,9 @@
 
 .container {
   width: 25rem;
-  height: 10rem;
+  height: 26rem;
   background: var(--color--semi-blue-black);
   border-radius: 1.5rem;
-  margin: auto;
 }
 
 .container h4 {
@@ -75,4 +74,5 @@
 .container span {
     color: var(--color--red);
     margin: 0 0 0 0.5rem;
+    cursor: pointer;
 }
