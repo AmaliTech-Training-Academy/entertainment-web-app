@@ -11,6 +11,7 @@
     margin-top: -.375rem;
 }
 .about{
+    margin-top: -3rem;
     display: flex;
     font-size: 0.8rem;
     color: #fff;
@@ -83,7 +84,7 @@
 .play-icon{
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-left: 0.5rem;
     /* z-index: -3; */
 }
@@ -168,7 +169,7 @@
     .movie-items .bookmark-icon{
         /* border: 1px solid white; */
         position:relative;
-        top: 0.5rem;
+        top: .3rem;
         left: 7.5rem;
         width: 2rem;
         height: 2rem;
@@ -189,7 +190,7 @@
     }
     .play-items{
         position: relative;
-        top: -5.5rem;
+        top: -4.5rem;
         left: 1rem;
         /* width: 5rem;
         height: 2rem; */
