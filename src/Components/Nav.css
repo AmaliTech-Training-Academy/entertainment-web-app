@@ -39,27 +39,42 @@ nav .nav-items ul{
     align-items: center;
 }
 
-nav .nav-items a{
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-    width: 1rem;
+.nav-items ul li{
     height: 1.25rem;
+    /* border: 1px solid red; */
 }
 
-.nav-items ul .home a svg{
-    fill: #ffffff;
+
+.nav-items ul .home{
+    background: url('../../public/assets/icon-nav-home.svg');
+    width: 1.25rem;
+    background-size: cover;
+    filter: brightness(0) invert(1);
+    border: 1px solid ;
+}
+.nav-items ul .movies{
+    background: url('../../public/assets/icon-nav-movies.svg');
+    width: 1.25rem;
+    background-size: cover;
 }
 
-.nav-items ul a svg{
-    fill: #5A698F;
-    width: 100%;
-    height: 100%;
+.nav-items ul .tv-series{
+    background: url('../../public/assets/icon-nav-tv-series.svg');
+    width: 1.25rem;
+    background-size: cover;
 }
 
-.nav-items ul a svg:hover{
-    fill: red;
+.nav-items ul .bookmarked{
+    background: url('../../public/assets/icon-nav-bookmark.svg');
+    width: 1.05rem;
+    background-size: cover;
 }
+
+
+.nav-items ul li:hover{
+    filter: brightness(0) saturate(100%) invert(59%) sepia(78%) saturate(5955%) hue-rotate(335deg) brightness(104%) contrast(102%);
+    }
+
 
 
 
@@ -146,7 +161,7 @@ nav .user-avatar{
     }
     
     .nav-items {
-        /* border: 1px solid white; */
+        border: 1px solid white;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -158,7 +173,7 @@ nav .user-avatar{
         /* border: 1px solid white; */
         width: 1.5rem;
         height: 1.25rem;
-        background: url('/public/assets/logo.svg');
+        background-size: cover;
         margin-bottom: 0;
     }
     
@@ -168,15 +183,15 @@ nav .user-avatar{
         list-style: none;
         padding: 0;
         width: 8.3rem;
-        height: 1rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
     }
+
     
-    nav .nav-items a{
+    /* nav .nav-items a{
         display: block;
         color: inherit;
         text-decoration: none;
@@ -184,25 +199,11 @@ nav .user-avatar{
         border: 1px solid;
         height: 1rem;
         width: 0.8rem;
-    }
-
-    .nav-items ul a svg{
-        display: inline-block;
-        fill: #5A698F;
-        width: 130%;
-        height: 130%;
-    }
+    } */
     
-    .nav-items ul .home a svg{
-        fill: #ffffff;
-
-    }
-    
- 
-    
-    .nav-items ul a svg:hover{
-        fill: red;
-    }
+    .nav-items ul li:hover{
+        filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(7453%) hue-rotate(9deg) brightness(103%) contrast(115%);
+        }
     
     
     
