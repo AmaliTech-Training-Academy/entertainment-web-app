@@ -1,10 +1,14 @@
 import Navbar from '../../Components/Nav';
+import Content from './Content';
+import './Bookmark.css'
+import './AddBookmark'
 
 const Book = () => {
     return(
     <main>
         <Navbar/>
-        <h1>Bookmarked</h1>
+        <Content/>
+        {/* <AddBookmark/> */}
     </main>
         )
 }

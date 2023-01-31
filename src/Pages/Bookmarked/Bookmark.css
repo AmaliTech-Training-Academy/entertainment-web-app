@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Outfit:wght@300&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  --color--semi-blue-black: #161d2f;
+  --color--red: #fc4747;
+  --color--white: #ffffff;
+  --color--gray: #5a698f;
+
+  --font-outfit-light: 'Outfit', sans-serif;
+}
+
+main{
+    color: var(--color--white);
+    padding: 2rem;
+    display: flex;
+}
