@@ -18,22 +18,27 @@ const { configurePassport } = require("./passport-config");
 
 const users = require("./users");
 
+const getUserByEmail = (email) => users.find((user) => user.email === email);
+
 async function verify(email, password, done) {
   console.log("login: ", email);
-  console.log(users);
-  const getUserByEmail = (email) => users.find((user) => user.email === email);
+  // console.log(users);
+  
 
   const user = getUserByEmail(email);
-  console.log(`user: ${user}`);
+  console.log(`user: ${user.email}`);
+
   if (user === null) {
     return done(null, false, { message: "No user with that email" });
   }
 
   try {
     if (user && (await bcrypt.compare(password, user.password))) {
-      return done(null, user);
+      console.log("pass success");
+
+      done(null, user);
     } else {
-      return done(null, false, { message: "Password or email incorrect" });
+      done(null, false, { message: "Password or email incorrect" });
     }
   } catch (e) {
     return done(e);
@@ -43,13 +48,21 @@ async function verify(email, password, done) {
 // (email) => users.find((user) => user.email === email),
 const getUserById = (id) => users.find((user) => user.id === id);
 
-passport.serializeUser((user, done) => done(null, user.id));
+passport.serializeUser((user, done) => {
+  console.log(user);
+
+  return done(null, user.id);
+});
 passport.deserializeUser((id, done) => {
+  console.log(id);
+
   return done(null, getUserById(id));
 });
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
+/*
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -57,31 +70,51 @@ app.use(
     saveUninitialized: false,
   })
 );
+*/
 passport.use(new LocalStrategy({ usernameField: "email" }, verify));
+
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 // app.use(methodOverride("_method"));
 
 app.get("/", checkAuthenticated, (req, res) => {
   // res.render("index.ejs", { name: req.user.name });
-  res.status(200).json({message: 'Home Page'})
+  res.status(200).json({ message: "Home Page" });
 });
 
 app.get("/login", checkNotAuthenticated, (req, res) => {
   // res.render("login.ejs");
-  res.status(200).json({message: "Login"})
+  res.status(200).json({ message: "Login" });
 });
-
+/*
 app.post(
   "/login",
   checkNotAuthenticated,
   passport.authenticate("local", {
+    session: false,
     successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true,
   })
 );
+*/
 
+app.post("/login", async (req, res) => {
+
+  try {
+      const user = getUserByEmail(req.body.email);
+
+      if (await bcrypt.compare(req.body.password, user.password)) {
+        res.status(200).send({ message: 'Login' });
+      } else {
+        res.status(400).send("wrong password");
+      }
+      
+  } catch {
+      res.send("wrong details")
+      
+  }
+})
 
 app.post("/signup", checkNotAuthenticated, async (req, res) => {
   try {
@@ -94,14 +127,13 @@ app.post("/signup", checkNotAuthenticated, async (req, res) => {
         password: hashedPassword,
       });
       await collection.insertMany([users]);
-      // console.log(users);
       res.redirect("/login");
     } else {
       res.send("Unmatched Password");
     }
   } catch {
     res.redirect("/signup");
-    res.status(200).json({message: "signup"})
+    res.status(200).json({ message: "signup" });
   }
 });
 
@@ -116,6 +148,7 @@ app.post("/logout", (req, res) => {
 });
 
 function checkAuthenticated(req, res, next) {
+  console.log(`req auth: ${req.isAuthenticated()}`);
   if (req.isAuthenticated()) {
     return next();
   }
@@ -126,10 +159,10 @@ function checkAuthenticated(req, res, next) {
 function checkNotAuthenticated(req, res, next) {
   console.log("body:", req.body);
   if (req.isAuthenticated()) {
-    // console.log("Auth");
+    console.log("Auth");
     return res.redirect("/");
   }
-  // console.log("Not Auth");
+  console.log("Not Auth");
   next();
 }
 
