@@ -1,20 +1,20 @@
 .recommended{
     /* border: 1px solid white; */
     padding: 0;
-    /* width: 97.5%; */
+    /* width: 90.5%; */
 }
 
 .recommended-items{
     display: grid;
     grid-template-columns: auto auto auto auto;
     position: relative;
-    row-gap: 2rem;
+    gap: 2rem;
 
 }
 
 .recommended-items .option{
     /* border: 1px solid white; */
-    width: 90%;
+    width: 100%;
     position: relative;
     cursor: pointer;
 }
@@ -60,7 +60,6 @@ opacity: 0.5;
     display: flex;
     align-items: center;
     margin-bottom: 5px;
-    /* box-shadow: 5px 10px 18px red; */
 }
 
 .recommended-items .option .item-info .about img{
@@ -81,6 +80,8 @@ opacity: 0.5;
 .recommended-items .option .item-info .item-title{
 margin: 0;
 }
+
+
 
 @media screen and (max-width:850px) {
     .recommended{

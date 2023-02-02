@@ -1,20 +1,19 @@
 .content{
     /* border: 1px solid white; */
     padding: 2rem 0 0 2rem;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 @media screen and (max-width:850px){
     .content{
-        padding-left: 0;
+        padding: 1rem;
         width: 100%;
     }
 }
 
 @media screen and (max-width:440px) {
     .content{
-        /* width: 100vw; */
+    padding: 1rem;
     }
-    
 }
 

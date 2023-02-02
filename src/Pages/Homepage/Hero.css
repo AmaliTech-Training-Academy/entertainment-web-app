@@ -1,11 +1,11 @@
 header{
     /* border: 1px solid white; */
-    width: 89.4vw;
+    /* width: 110vw; */
     overflow-x: hidden;
     margin-bottom: 2.5rem;
 }
 
-
+    
 header .trending h1{
 font-weight: 300;
 font-size: 2rem;
@@ -14,7 +14,7 @@ letter-spacing: -0.5px;
 }
 
 .trending-items .bookmark-icon{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     position: absolute;
     top: 1rem;
     right: 1.5rem;
@@ -27,10 +27,6 @@ letter-spacing: -0.5px;
     border-radius: 50%;
 }
 
-/* .trending-items .bookmark-icon svg{
-    margin: 0 auto;
-} */
-
 header .trending .trending-items{
     /* border: 1px solid white; */
     display: flex;
@@ -38,7 +34,6 @@ header .trending .trending-items{
     overflow-x: scroll;
     scroll-behavior: smooth;
     justify-content: space-between;
-    /* width: 20vw; */
 }
 
 header .trending .trending-items .trend{
@@ -194,10 +189,10 @@ header .trending .trending-items .trend .item-info .oval{
         margin-bottom: 2.5rem;
     }
 
-    .trending{
+    /* .trending{
         width: 100%;
     }
-    
+     */
     
     header .trending h1{
     font-weight: 300;
@@ -234,7 +229,6 @@ header .trending .trending-items .trend .item-info .oval{
     
     header .trending .trending-items .trend{
         /* border: 1px solid white; */
-        /* width: 30rem; */
         margin-right: 1rem;
         position: relative;
     }
@@ -304,21 +298,6 @@ header .trending .trending-items .trend .item-info .oval{
         margin: 0 .5rem;
     }
 
-    /* .item-info .about .oval:nth-of-type(2){
-        display: none;
-    } */
-
-    /* .item-info .about span:nth-of-type(3){
-        position: absolute;    
-        right: -7.3rem;
-        bottom: -1rem;
-        padding: 0.125rem .5rem;
-        font-size: .8rem;
-        line-height: 1rem;
-        text-align: center;
-        border-radius: 10.5px;
-        background: rgba(255, 255, 255, 0.15);
-} */
     
     .trending-items .trend .item-info .item-title{
         font-weight: 500;
@@ -334,6 +313,15 @@ header .trending .trending-items .trend .item-info .oval{
     header{
         /* border: 1px solid white; */
         width: 100vw;
+        overflow-x: hidden;
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    header{
+        /* border: 1px solid white; */
+        width: 94vw;
         overflow-x: hidden;
         margin-bottom: 2.5rem;
     }

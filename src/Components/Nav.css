@@ -1,6 +1,6 @@
 nav{
     /* border: 1px solid white; */
-    max-width: 6rem;
+    width: 6rem;
     height: 91vh;
     padding: 2rem;
     border-radius: 1.25rem;
@@ -50,8 +50,8 @@ nav .nav-items ul{
     width: 1.25rem;
     background-size: cover;
     filter: brightness(0) invert(1);
-    border: 1px solid ;
 }
+
 .nav-items ul .movies{
     background: url('../../public/assets/icon-nav-movies.svg');
     width: 1.25rem;
@@ -76,8 +76,6 @@ nav .nav-items ul{
     }
 
 
-
-
 nav .user-avatar{
     border: 1px solid white;
     background: url('/public/assets/image-avatar.png');
@@ -92,10 +90,11 @@ nav .user-avatar{
 @media screen and (max-width: 850px) {
     nav{
     /* border: 1px solid white; */
-    max-width: 100%;
+    width: 90%;
     height: 4.5rem;
-    /* padding: 2rem; */
-    border-radius: 1.25rem;
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: .6rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -132,28 +131,21 @@ nav .nav-items ul{
     width: 50%;
     /* justify-content: space-between; */
     align-items: center;
-}
+}   
 
 nav .user-avatar{
-    /* border: 1px solid white; */
-    background: url('/public/assets/image-avatar.png');
-    width: 2.5rem;
-    height: 2.5rem;
-    /* align-self: center; */
-    background-size: cover;
     margin-top: 0;
-    border-radius: 50%;
 }
-    
 }
+
 
 @media screen and (max-width:440px) {
     nav{
         /* border: 1px solid white; */
-        width: 100%;
+        width: 100vw;
         height: auto;
-        padding: 1.25rem 1rem;
-        border-radius: 1.25rem;
+        padding: 1rem 1rem;
+        border-radius: 0;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -161,12 +153,12 @@ nav .user-avatar{
     }
     
     .nav-items {
-        border: 1px solid white;
+        /* border: 1px solid white; */
         display: flex;
         flex-direction: row;
         align-items: center;
-        width: 100%;
-        height: 3.5rem;
+        width: 120%;
+        height: auto;
     }
     
     .nav-items .logo{
@@ -189,18 +181,42 @@ nav .user-avatar{
         align-items: center;
         margin: 0 auto;
     }
-
     
-    /* nav .nav-items a{
-        display: block;
-        color: inherit;
-        text-decoration: none;
-        cursor: pointer;
-        border: 1px solid;
+    .nav-items ul li{
         height: 1rem;
-        width: 0.8rem;
-    } */
+        /* border: 1px solid red; */
+    }
+
+    .nav-items ul .home{
+        background: url('../../public/assets/icon-nav-home.svg');
+        width: 1rem;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0) invert(1);
+    }
+    .nav-items ul .movies{
+        background: url('../../public/assets/icon-nav-movies.svg');
+        width: 1rem;
+        background-size: cover;
+        background-position: center;
+
+    }
     
+    .nav-items ul .tv-series{
+        background: url('../../public/assets/icon-nav-tv-series.svg');
+        width: 1rem;
+        background-size: cover;
+        background-position: center;
+
+    }
+    
+    .nav-items ul .bookmarked{
+        background: url('../../public/assets/icon-nav-bookmark.svg');
+        width: .8rem;
+        background-size: cover;
+        background-position: center;
+    }
+
     .nav-items ul li:hover{
         filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(7453%) hue-rotate(9deg) brightness(103%) contrast(115%);
         }
@@ -210,8 +226,8 @@ nav .user-avatar{
     nav .user-avatar{
         border: 1px solid white;
         background: url('/public/assets/image-avatar.png');
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
         background-size: cover;
         margin-top: 0;
         border-radius: 50%;
