@@ -1,91 +1,18 @@
-// import React, { useState } from 'react';
-// import Bookmark from "../../data.json"
+import React, { useState } from 'react';
 
-// interface Bookmarked {
-//   id: number;
-//   title: string;
-//   year: number;
-// }
-
-// const BookmarkPage: React.FC = () => {
-//   const [selectedBookmark, setSelectedBookmark] = useState<Bookmarked | null>(null);
-//   const [bookmarks] = useState<Bookmarked[]>([
-//     { id: 1, title: 'The Shawshank Redemption', year: 1994 },
-//     { id: 2, title: 'The Godfather', year: 1972 },
-//     { id: 3, title: 'The Godfather: Part II', year: 1974 },
-//   ]);
-
-//   const handleClick = (bookmark: Bookmarked) => {
-//     setSelectedBookmark(bookmark);
-//   };
-
-//   return (
-//     <div>
-//       <h1>My Bookmarks</h1>
-//       <ul>
-//         {bookmarks.map((bookmark) => (
-//           <li key={bookmark.id} onClick={() => handleClick(bookmark)}>
-//             {bookmark.title}
-//           </li>
-//         ))}
-//       </ul>
-//       {selectedBookmark ? (
-//         <div>
-//           <h2>{selectedBookmark.title}</h2>
-//           <p>Released in {selectedBookmark.year}</p>
-//         </div>
-//       ) : (
-//         <p>Click on a bookmark to view details</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default BookmarkPage;
-
-import React, { useState, useEffect } from 'react';
-
-interface Bookmark {
-  id: number;
-  title: string;
-  year: number;
-}
-
-const BookmarkPage: React.FC = () => {
-  const [selectedBookmark, setSelectedBookmark] = useState<Bookmark | null>(null);
-  const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
-
-  useEffect(() => {
-    fetch('https://your-api.com/bookmarks')
-      .then((response) => response.json())
-      .then((data) => setBookmarks(data))
-      .catch((error) => console.error(error));
-  }, []);
-
-  const handleClick = (bookmark: Bookmark) => {
-    setSelectedBookmark(bookmark);
-  };
-
-  return (
-    <div>
-      {/* <h1>My Bookmarks</h1> */}
-      <ul>
-        {bookmarks.map((bookmark) => (
-          <li key={bookmark.id} onClick={() => handleClick(bookmark)}>
-            {bookmark.title}
-          </li>
-        ))}
-      </ul>
-      {selectedBookmark ? (
-        <div>
-          <h2>{selectedBookmark.title}</h2>
-          <p>Released in {selectedBookmark.year}</p>
-        </div>
+function BookmarkSVG() {
+  const [isBookmarked, setIsBookmarked] = useState(true);
+  function handleClick() {
+    setIsBookmarked(!isBookmarked);
+  }
+  return (      
+    <svg onClick={handleClick} width="12" height="14" xmlns="http://www.w3.org/2000/svg">
+    {isBookmarked ? (
+        <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/>
       ) : (
-        <p>Click on a bookmark to view details</p>
+        <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="#FFF"/>
       )}
-    </div>
+    </svg>
   );
-};
-
-export default BookmarkPage;
+}
+export default BookmarkSVG;

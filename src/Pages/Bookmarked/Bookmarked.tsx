@@ -1,5 +1,4 @@
 import Navbar from '../../Components/Nav';
-import BookmarkPage from '../Movies/Bookmark';
 import './Bookmarked.css'
 
 
@@ -8,7 +7,6 @@ const Book = () => {
     <main>
         <Navbar/>
         <h1>Bookmarked</h1>
-        <BookmarkPage/>
     </main>
         )
 }
