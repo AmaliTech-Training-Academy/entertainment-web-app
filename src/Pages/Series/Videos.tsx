@@ -1,7 +1,6 @@
 import Hello from '../../data.json'
 import './Videos.css'
-import BookmarkSVG from './Bookmarked';
-
+import BookmarkSVG from './Bookmarked'
 
 
 const Videos = () => {
@@ -14,8 +13,9 @@ const Videos = () => {
                             return item.category === 'TV Series'
                         }).map((item)=> (
                             <div className="series" key={item.title}>
-                                <div className="bookmark-icon" /*onClick={BookmarkSVG}*/>
-                                    <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg"><path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/></svg>
+                                <div className="bookmark-icon">
+                                    <BookmarkSVG/>
+                                    {/* <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg"><path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/></svg> */}
                                 </div>
                                 <div className="image">
                                     <img className="large" src={item.thumbnail.regular.large} alt=''/>
