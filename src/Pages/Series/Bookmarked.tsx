@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function BookmarkSVG() {
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(true);
 
   function handleClick() {
     setIsBookmarked(!isBookmarked);
