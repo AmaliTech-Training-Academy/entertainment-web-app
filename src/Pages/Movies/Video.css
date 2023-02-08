@@ -88,6 +88,10 @@
     margin-left: 0.5rem;
     /* z-index: -3; */
 }
+.play-items:hover{
+    /* display: inline; */
+    z-index: 1;
+}
 
 
 
