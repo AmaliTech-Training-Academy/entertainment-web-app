@@ -13,12 +13,11 @@ const session = require("express-session");
 // const collection = require("./models/mongodb");
 const PORT = process.env.SERVER_PORT;
 
-
-const authRoutes = require('./routes/auth');
+const authRoutes = require("./routes/auth");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(flash());
-/*
+// app.use(flash());
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -26,26 +25,26 @@ app.use(
     saveUninitialized: false,
   })
 );
-*/
+
 
 app.use(passport.initialize());
 // app.use(passport.session());
 // app.use(methodOverride("_method"));
 
-app.get('/', (req, res) => {
-  res.status(200).json('Index');
-})
+app.get("/", (req, res) => {
+  console.log('req', req.user);
+  res.status(201).json({ "user": req.route })
+  // res.status(200).json("Index");
+});
 
-app.use('/auth', authRoutes);
-
-
+app.use("/auth", authRoutes);
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/entertainmentDB")
 
   .then(() => {
     console.log("Mongodb Database Created");
-    mongoose
+    mongoose;
   })
   .catch((err) => {
     console.log("Failed to Create Database:", err);
