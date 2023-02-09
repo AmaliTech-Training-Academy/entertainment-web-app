@@ -1,20 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import * as yup from "yup";
+import axios from "axios";
 // import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup"
 // import schema from "../components/Schema";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 
-const schema1 = yup.object().shape({
-  email: yup.string().email("Invalid Email").required("Email is required"),
-  password: yup
-    .string()
-    .min(8, "Password must be at least 8 characters")
-    .max(32)
-    .required("Can't be empty"),
-});
+
 const schema = yup.object().shape({
   email: yup.string().email().required("Email is required"),
   password: yup
@@ -44,8 +38,9 @@ const Signup = () => {
 
     schema
       .validate(formData, { abortEarly: false })
-      .then(() => {
+      .then((tak) => {
         // form is valid, do something with the data
+        console.log(tak)
       })
       .catch((error) => {
         // validation failed, update the errors object

@@ -5,25 +5,40 @@ import * as yup from "yup";
 // import { yupResolver } from "@hookform/resolvers/yup"
 import { Link } from "react-router-dom";
 import "./Login.css";
+import axios from "axios";
 // import schema from "./Schema";
 // import userEvent from "@testing-library/user-event";
 
-
 const schema = yup.object().shape({
   email: yup.string().email("Invalid Email").required("Email is required"),
-  password: yup.string().min(8, 'Password must be at least 8 characters').max(32).required("Can't be empty"),
+  password: yup
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .max(32)
+    .required("Can't be empty"),
 });
 
-
 const Login = () => {
-  // const { register, handleSubmit, errors, reset } = useForm({
-  //   resolver: yupResolver(schema)
-  // });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const submitForm = (data) => {
-  //   console.log({ data })
-  //   reset()
-  // }
+  async function submit(e) {
+    e.preventDefault();
+    const data = {
+      email,
+      password,
+    };
+    console.log({ data });
+
+    axios.post("http://localhost:8080/auth/login", data);
+    // try {
+    //   await axios.post("http://localhost:/8080"),
+    //   // email, password;
+    // } catch (e) {
+    //   console.log(e);
+    // }
+  }
+
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
 
@@ -36,8 +51,9 @@ const Login = () => {
 
     schema
       .validate(formData, { abortEarly: false })
-      .then(() => {
+      .then((res) => {
         // form is valid, do something with the data
+        console.log(res);
       })
       .catch((error) => {
         // validation failed, update the errors object
