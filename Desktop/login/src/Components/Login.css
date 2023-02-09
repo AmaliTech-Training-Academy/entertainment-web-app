@@ -84,3 +84,9 @@
   color: var(--color--red);
   margin: 0 0 0 0.5rem;
 }
+
+.pass{
+  color: var(--color--red);
+  border: 2px solid blue;
+  height: 0.5rem;
+}
