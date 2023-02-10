@@ -1,7 +1,12 @@
 nav{
     /* border: 1px solid white; */
+<<<<<<< HEAD
+    max-width: 6rem;
+    height: 50rem;
+=======
     width: 6rem;
     height: 91vh;
+>>>>>>> origin/Dev
     padding: 2rem;
     border-radius: 1.25rem;
     display: flex;
@@ -44,12 +49,17 @@ nav .nav-items ul{
     /* border: 1px solid red; */
 }
 
+<<<<<<< HEAD
+.nav-items ul .movies a svg{
+    fill: #ffffff;
+=======
 
 .nav-items ul .home{
     background: url('../../public/assets/icon-nav-home.svg');
     width: 1.25rem;
     background-size: cover;
     filter: brightness(0) invert(1);
+>>>>>>> origin/Dev
 }
 
 .nav-items ul .movies{
@@ -86,6 +96,93 @@ nav .user-avatar{
     border-radius: 50%;
 }
 
+<<<<<<< HEAD
+@media only screen and (max-width:820px) and (min-width:480px) {
+    nav{
+        max-width: 46rem;
+        height: 4.5rem;
+        display: flex;
+        flex-direction: row;
+        margin-top: 2rem; 
+        margin-left: 1rem;
+       
+    }
+    
+    .nav-items {
+        flex-direction:row;
+    }
+    
+    .nav-items .logo{
+        margin-top: 4.5rem;
+        
+    }
+    nav .nav-items ul{
+        width: 10.75rem;
+        height: 1.25rem;
+        display: flex;
+        flex-direction: row; 
+        margin-left: 14rem;
+        
+    }
+    nav .user-avatar{
+        margin-top: 0;
+        margin-left: 9.5rem;
+    
+    }
+
+}
+@media only screen and (max-width:420px) and (min-width:320px) {
+    
+    nav{
+        max-width: 400rem;
+        height: 4.5rem;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2rem; 
+        margin-left: -2rem;
+        border-radius: 0;
+        margin: -2rem;
+    }
+    
+    .nav-items {
+        flex-direction:row;
+    }
+   
+    
+    nav .nav-items ul{
+        width: 8.75rem;
+        height: 1.25rem;
+        flex-direction: row; 
+        margin-left: 3.8rem;
+        
+    }
+     
+    .nav-items .logo{
+        margin-top: 4.5rem;
+        width: 2rem;
+    }
+    nav .user-avatar{
+        margin-top: 0;
+        margin-left: 2.5rem;
+    
+    }
+    nav .nav-items ul svg{
+        width: 1.2rem;
+        margin-top: 0;
+        /* margin-left: .5rem; */
+    }
+}
+
+/* @media only screen and (max-width: 375px) {
+
+    nav .user-avatar{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top: 0;
+        margin-left:4.5rem;
+    }
+} */
+=======
 
 @media screen and (max-width: 850px) {
     nav{
@@ -235,3 +332,4 @@ nav .user-avatar{
     
     
 }
+>>>>>>> origin/Dev

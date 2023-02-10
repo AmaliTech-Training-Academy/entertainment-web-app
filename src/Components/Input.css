@@ -3,6 +3,7 @@ form{
     height: 3rem;
     display: flex;
     align-items: center;
+   
 
 }
 
@@ -41,6 +42,24 @@ input[type=text]:hover{
     cursor: pointer;
 }
 
+<<<<<<< HEAD
+@media only screen and (max-width:420px) and (min-width:320px){
+    form .search{
+        height: 1.5rem;
+        width: 2rem;
+        background-position: center;
+        /* margin-right: 1.5rem; */
+    }
+    form {
+        margin-left: -3rem;
+    }
+    input{
+        font-weight: 300;
+        font-size: 1rem;
+        margin-left: -1rem;
+        width: 80%;
+        height: 80%;
+=======
 
 @media screen and (max-width:440px) {
     input{
@@ -53,5 +72,6 @@ input[type=text]:hover{
         font-size: 1rem;
         line-height: 1.25rem;
         opacity: 0.5;
+>>>>>>> origin/Dev
     }
 }

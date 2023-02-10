@@ -18,12 +18,20 @@ const Hero = () => {
                                 <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg"><path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF" stroke-width="1.5" fill="none"/></svg>
                                 </div>
                                 <div className="image">
+<<<<<<< HEAD:src/Components/Hero.tsx
+                                    <img src={item.thumbnail.trending?.large} alt = ''/>
+                                </div>
+                                <div className="item-info">
+                                    <div className="about">
+                                        {item.year} <div className="oval"></div> <img src={item.logo} alt = ''/> {item.category} <div className="oval"></div> {item.rating}
+=======
                                     <img className="large" src={item.thumbnail.trending?.large} />
                                     <img className="small" src={item.thumbnail.trending?.small} />
                                 </div>
                                 <div className="item-info">
                                     <div className="about">
                                        <span>{item.year}</span>  <div className="oval"></div>  <span><img src={item.logo} /></span> {item.category} <div className="oval"></div>  <span>{item.rating}</span>
+>>>>>>> origin/Dev:src/Pages/Homepage/Hero.tsx
                                     </div>
                                     <h1 className="item-title">
                                     {item.title}

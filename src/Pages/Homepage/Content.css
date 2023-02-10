@@ -1,5 +1,9 @@
 .content{
     /* border: 1px solid white; */
+<<<<<<< HEAD
+    width: 100%;
+=======
+>>>>>>> origin/Dev
     padding: 2rem 0 0 2rem;
     overflow-x: hidden;
 }

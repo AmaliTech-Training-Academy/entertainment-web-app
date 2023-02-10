@@ -1,7 +1,13 @@
 main{
     /* border: 1px solid white; */
+<<<<<<< HEAD
+    color: aliceblue;
+    padding: 2rem;
+    /* height: 100vh; */
+=======
     color: #ffffff;
     padding: 1.5rem;
+>>>>>>> origin/Dev
     display: flex;
     width: 100%;
     position: relative;
