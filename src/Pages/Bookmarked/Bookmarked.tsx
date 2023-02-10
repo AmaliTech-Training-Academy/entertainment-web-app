@@ -1,5 +1,4 @@
 import Navbar from '../../Components/Nav';
-import './Bookmarked.css'
 
 
 const Book = () => {

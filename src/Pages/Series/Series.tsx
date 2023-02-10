@@ -1,11 +1,15 @@
 import Navbar from '../../Components/Nav';
+<<<<<<< HEAD
 import './Series.css'
+import Content from './Content';
+=======
+>>>>>>> origin/Dev
 
 const Series = () => {
     return(
     <main>
         <Navbar/>
-        <h1>Series</h1>
+        <Content/>
     </main>
         )
 }

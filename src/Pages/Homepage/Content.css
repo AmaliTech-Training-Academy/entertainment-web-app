@@ -1,6 +1,23 @@
 .content{
     /* border: 1px solid white; */
+<<<<<<< HEAD
     width: 100%;
+=======
+>>>>>>> origin/Dev
     padding: 2rem 0 0 2rem;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
+
+@media screen and (max-width:850px){
+    .content{
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:440px) {
+    .content{
+    padding: 1rem;
+    }
+}
+
