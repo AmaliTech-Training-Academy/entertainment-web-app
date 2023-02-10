@@ -15,7 +15,7 @@ const Options = () => {
                         <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg"><path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke-width="1.5"/></svg>
                         </div>
                         <div className="image">
-                            <img className='large' src={item.thumbnail.regular.large} />
+                            <img className='large' src={item.thumbnail.regular.large} alt="hello"/>
                             <img className='medium' src={item.thumbnail.regular.medium} />
                             <img className='small' src={item.thumbnail.regular.small} />
                         </div>

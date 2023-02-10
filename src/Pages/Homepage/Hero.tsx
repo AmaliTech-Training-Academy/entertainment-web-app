@@ -23,7 +23,7 @@ const Hero = () => {
                                 </div>
                                 <div className="item-info">
                                     <div className="about">
-                                       <span>{item.year}</span>  <div className="oval"></div>  <span><img src={item.logo} /></span> {item.category} <div className="oval"></div>  <span>{item.rating}</span>
+                                        <span>{item.year}</span>  <div className="oval"></div>  <span><img src={item.logo}/></span> {item.category} <div className="oval"></div>  <span>{item.rating}</span>
                                     </div>
                                     <h1 className="item-title">
                                     {item.title}
