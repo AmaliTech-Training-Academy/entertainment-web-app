@@ -1,6 +1,6 @@
 
 import Movie from '../../data.json'
-import BookmarkSVG from './Bookmark'
+import BookmarkSVG from '../../Components/BookmarkButton'
 // import Link from './Linked'
 import './Video.css'
 

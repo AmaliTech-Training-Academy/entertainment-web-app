@@ -42,7 +42,6 @@ input[type=text]:hover{
     cursor: pointer;
 }
 
-<<<<<<< HEAD
 @media only screen and (max-width:420px) and (min-width:320px){
     form .search{
         height: 1.5rem;
@@ -59,19 +58,5 @@ input[type=text]:hover{
         margin-left: -1rem;
         width: 80%;
         height: 80%;
-=======
-
-@media screen and (max-width:440px) {
-    input{
-        width: 100%;
-        height: 100%;
-        border: none;
-        outline: none;
-        background: transparent;
-        font-weight: 300;
-        font-size: 1rem;
-        line-height: 1.25rem;
-        opacity: 0.5;
->>>>>>> origin/Dev
     }
 }
