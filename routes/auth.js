@@ -34,23 +34,24 @@ async function verify(email, password, done) {
 }
 
 passport.serializeUser((user, done) => {
-    console.log("\n\n\nser", user);
-    delete user.password;
-    return done(null, user);
+    done(null, user);
 });
+
 passport.deserializeUser((user, done) => {
-  console.log(user);
+    // delete user.password;
   return done(null, user);
 });
 
 passport.use(new LocalStrategy({ usernameField: "email" }, verify));
 
-// GET /auth/login
+// GET /auth
 router.get("/", checkAuthenticated, (req, res, next) => {
   // res.render("index.ejs", { name: req.user.name });
   res.status(200).json({ message: "Home Page" });
 });
 
+
+// POST /auth/login
 router.post(
   `/login`,
   checkNotAuthenticated,
@@ -62,7 +63,12 @@ router.post(
     if (req.user) {
     //   res.redirect("/");
         console.log('req.user', req.user);
-        return res.status(201).json({ user: req.user });
+        return res.status(201).json({
+             user: { 
+                email: req.user.email ,
+                bookmark: req.user.bookmark
+            } 
+        });
     }
     res.status(401).json("No auth");
     // if (req.user.isAdmin === false) {
@@ -71,23 +77,6 @@ router.post(
   }
 );
 
-//   res.status(200).json({ message: "Login" });
-// );
-/*
-router.post("/login", async (req, res) => {
-  try {
-    const user = getUserByEmail(req.body.email);
-
-    if (await bcrypt.compare(req.body.password, user.password)) {
-      res.status(200).send({ message: "Login" });
-    } else {
-      res.status(400).send("wrong password");
-    }
-  } catch {
-    res.send("wrong details");
-  }
-});
-*/
 
 router.post("/signup", checkNotAuthenticated, async (req, res) => {
   const { email, password, confirm_password } = req.body;
@@ -115,7 +104,7 @@ router.post("/signup", checkNotAuthenticated, async (req, res) => {
 router.post('/logout', function(req, res, next){
 
     delete req.user
-    console.log(req.user)
+    console.log('req.user', req.user)
     return res.status(200).json("ksjf");
 
   });

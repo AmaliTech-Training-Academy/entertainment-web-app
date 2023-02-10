@@ -20,10 +20,41 @@ const getUserByEmail = async (email) => {
   try {
     const user = User.findOne({ email });
     return user;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    return error.message;
+  }
 };
+
+const addBookmark = async (email, title) => {
+  try {
+    const user = await User.findOne({ email });
+    console.log(user);
+    user.bookmark.push(title);
+    user.save();
+    return user;
+  } catch (error) {
+    console.log(error);
+    return { "error": error };
+  }
+}
+
+const deleteBookmark = async (email, title) => {
+  try {
+    const user = await User.findOne({ email });
+    let index = user.bookmark.indexOf();
+    user.bookmark.splice(index, 1);
+    user.save();
+    return user;
+  } catch (error) {
+    console.log(error);
+    return { "error": error };
+  }
+}
 
 module.exports = {
   getUserByEmail,
   addUser,
+  addBookmark,
+  deleteBookmark
 };
