@@ -12,7 +12,7 @@ const addUser = async (email, password) => {
     return user;
   } catch (error) {
     console.log(error);
-    return error.message;
+    throw error;
   }
 };
 
