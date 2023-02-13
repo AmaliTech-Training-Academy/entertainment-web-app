@@ -3,11 +3,9 @@ import { useState } from "react";
 import * as yup from "yup";
 // import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
-// import schema from "./Schema";
-// import userEvent from "@testing-library/user-event";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid Email").required("Email is required"),
@@ -22,6 +20,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   async function submit(e) {
     e.preventDefault();
     const data = {
@@ -29,14 +29,6 @@ const Login = () => {
       password,
     };
     console.log({ data });
-
-    axios.post("http://localhost:8080/auth/login", data);
-    // try {
-    //   await axios.post("http://localhost:/8080"),
-    //   // email, password;
-    // } catch (e) {
-    //   console.log(e);
-    // }
   }
 
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -45,6 +37,26 @@ const Login = () => {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  const handleClick = (event) => {
+    event.preventDefault()
+    axios.post("http://localhost:8080/auth/login", 
+    {
+      email: formData.email,
+      password: formData.password
+    })
+    .then((res) => {
+      if (res.status === 200) {
+        navigate('/');
+      } else {
+        console.log("To the HomePage")
+
+      }
+    })
+    .catch(err => {
+    });
+  
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -90,10 +102,14 @@ const Login = () => {
           />
           {errors.password && <p className="pass"> {errors.password} </p>}
           <br />
-          <button type="submit">Login to your account</button>
+
+          <Link to="/">
+            <button type="submit" onClick={handleClick}>Login to your account</button>
+          </Link>
+          
           <p>
             Don't have an account?{" "}
-            <Link to="/Signup">
+            <Link to="/">
               <span>Signup</span>
             </Link>
           </p>

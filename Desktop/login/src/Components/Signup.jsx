@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import * as yup from "yup";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 // import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup"
-// import schema from "../components/Schema";
+// import {Userschema} from "./Validation/UserValidationSchema";
 import "./Signup.css";
-import { Link } from "react-router-dom";
-
+// import { Navigate } from "react-router-dom/dist";
+// import { Link } from "react-router-dom";
 
 const schema = yup.object().shape({
   email: yup.string().email().required("Email is required"),
@@ -16,12 +17,15 @@ const schema = yup.object().shape({
     .min(8, "Password must be at least 8 characters")
     .max(32)
     .required("Can't be empty"),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match"),
+    passwordConfirmation: yup.string()
+     .oneOf([yup.ref('password'), null], 'Passwords must match')
 });
 
+
 const Signup = () => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,6 +37,23 @@ const Signup = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    axios.post("http://localhost:8080/auth/signup", 
+    { email: formData.email,
+      password: formData.password
+    }).then((res) => {
+      console.log(res.status, res);
+      if (res.status) {
+        navigate('/Login')
+      }
+      console.log("To Login Page");
+    })
+    .catch(err => {
+
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -40,7 +61,7 @@ const Signup = () => {
       .validate(formData, { abortEarly: false })
       .then((tak) => {
         // form is valid, do something with the data
-        console.log(tak)
+        console.log(tak);
       })
       .catch((error) => {
         // validation failed, update the errors object
@@ -52,6 +73,7 @@ const Signup = () => {
         );
       });
   };
+
 
   return (
     <div className="main">
@@ -73,7 +95,7 @@ const Signup = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        {errors.password && <p> {errors.password} </p>}
+        {/* {errors.password && <p> {errors.password} </p>} */}
         <br />
         <input
           name="confirmPassword"
@@ -82,10 +104,12 @@ const Signup = () => {
           value={formData.confirmPassword}
           onChange={handleChange}
         />
-        <p>{errors.confirmPassword?.message}</p>
+        {/* <p>{errors.confirmPassword?.message}</p> */}
         <br />
         <Link to="/Login">
-          <button type="submit">Login to your account</button>
+          <button type="submit" onClick={handleClick}>
+            Create an Account
+          </button>
         </Link>
         <p>
           Already have an account?{" "}
