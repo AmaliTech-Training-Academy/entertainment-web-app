@@ -18,6 +18,7 @@ const PORT = process.env.SERVER_PORT;
 app.use(cors());
 const authRoutes = require("./routes/auth");
 const bookmarkRoutes = require("./routes/bookmark");
+const router = require("./routes/auth");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
