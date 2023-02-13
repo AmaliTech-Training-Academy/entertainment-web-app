@@ -1,4 +1,3 @@
-
 import Movie from '../../data.json'
 import BookmarkSVG from '../../Components/BookmarkButton'
 // import Link from './Linked'
@@ -7,14 +6,13 @@ import './Video.css'
 const Video = () => {
     return (
         
-            <div className="movie">
-                {/* <h2>Trending</h2> */}
+            <div className="movies">
                 <div className="movie-items">
                     {
                         Movie.filter((item) => {
                             return item.category === 'Movie'
                         }).map((item)=> (
-                            <div className="movies" key={item.title}>
+                            <div className="movie" key={item.title}>
                                 <div className="bookmark-icon">
                                     <BookmarkSVG/>
                                 </div>

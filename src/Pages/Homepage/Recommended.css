@@ -14,6 +14,7 @@
 
 .recommended-items .option{
     /* border: 1px solid white; */
+    height: 14rem;
     width: 100%;
     position: relative;
     cursor: pointer;
@@ -37,7 +38,6 @@
 
 .recommended-items .bookmark-icon svg{
     stroke: #ffffff;
-    /* fill: #ffffff; */
 }
 
 .recommended-items .option .image .large{
@@ -53,6 +53,13 @@ border-radius: .5rem;
 
 .recommended-items .option .image img:hover{
 opacity: 0.5;
+}
+
+.recommended-items .option .item-info {
+    /* border: 1px solid; */
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -.5rem;
 }
 
 .recommended-items .option .item-info .about{
@@ -95,7 +102,7 @@ font-size: 1.17vw;
         display: grid;
         grid-template-columns: auto auto auto;
         position: relative;
-        gap: 1rem;
+        gap: 2rem;
     
     }
     
@@ -180,18 +187,24 @@ width: auto;
         padding: 0;
         width: 100%;
     }
+
+    .recommended h1{
+        font-size: 1.25rem;
+        line-height: 1.56rem;
+        font-weight: 300;
+    }
     
     .recommended-items{
         display: grid;
         grid-template-columns: auto auto;
         position: relative;
         gap: 1rem;
-    
     }
     
     .recommended-items .option{
         /* border: 1px solid white; */
         width: 100%;
+        height: 9.6rem;
         position: relative;
         cursor: pointer;
     }
@@ -224,7 +237,7 @@ width: auto;
     .recommended-items .option .image .small{
             display: grid;
             width: 100%;
-            height: 8.75rem;
+            height: 6.785rem;
             border-radius: .5rem;
             margin-bottom: .5rem;
         }
