@@ -4,7 +4,7 @@ import * as yup from "yup";
 // import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup"
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
+import "./Signup.css";
 import axios from "axios";
 
 const schema = yup.object().shape({
@@ -40,7 +40,7 @@ const Login = () => {
 
   const handleClick = (event) => {
     event.preventDefault()
-    axios.post("http://localhost:8080/auth/login", 
+    axios.post("https://entertainment-web-app-signup-api.onrender.com/", 
     {
       email: formData.email,
       password: formData.password
@@ -81,7 +81,7 @@ const Login = () => {
   return (
     <>
       {" "}
-      <div className="main">
+      <div className="form">
         <form action=" " className="container" onSubmit={handleSubmit}>
           <h4>Login</h4>
           <input
@@ -105,11 +105,11 @@ const Login = () => {
 
           <Link to="/">
             <button type="submit" onClick={handleClick}>Login to your account</button>
-          </Link>
+          </Link>  
           
           <p>
             Don't have an account?{" "}
-            <Link to="/">
+            <Link to="/sign-up">
               <span>Signup</span>
             </Link>
           </p>

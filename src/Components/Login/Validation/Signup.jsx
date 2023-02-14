@@ -39,13 +39,13 @@ const Signup = () => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:8080/auth/signup", 
+    axios.post("https://entertainment-web-app-signup-api.onrender.com/", 
     { email: formData.email,
       password: formData.password
     }).then((res) => {
       console.log(res.status, res);
       if (res.status) {
-        navigate('/Login')
+        navigate('/')
       }
       console.log("To Login Page");
     })
@@ -76,7 +76,8 @@ const Signup = () => {
 
 
   return (
-    <div className="main">
+    <div className="form">
+      <div className="logo"></div>
       <form action="" className="container" onSubmit={handleSubmit}>
         <h4>Sign Up</h4>
         <input
@@ -106,14 +107,14 @@ const Signup = () => {
         />
         {/* <p>{errors.confirmPassword?.message}</p> */}
         <br />
-        <Link to="/Login">
+        <Link to="/">
           <button type="submit" onClick={handleClick}>
             Create an Account
           </button>
         </Link>
         <p>
           Already have an account?{" "}
-          <Link to="/">
+          <Link to="/log-in">
             <span>Login</span>
           </Link>
         </p>
