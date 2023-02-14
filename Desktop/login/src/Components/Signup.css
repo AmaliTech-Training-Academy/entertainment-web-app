@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Outfit:wght@300&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  --color--semi-blue-black: #161d2f;
+  --color--red: #fc4747;
+  --color--white: #ffffff;
+  --color--gray: #5a698f;
+
+  --font-outfit-light: "Outfit", sans-serif;
+}
+
+.container {
+  width: 25rem;
+  height: 26rem;
+  background: var(--color--semi-blue-black);
+  border-radius: 1.5rem;
+}
+
+.container h4 {
+  color: var(--color--white);
+  font-size: 2rem;
+  font-family: var(--font-outfit-light);
+  /* border: 2px solid red; */
+  padding: 0.8rem 0.09rem;
+  margin: 2rem 2rem;
+}
+
+.container input {
+  border-bottom: 1px solid var(--color--gray);
+  width: 80%;
+  height: 1rem;
+  font-family: var(--font-outfit-light);
+  color: var(--color--white);
+  font-size: 0.9rem;
+  background: none;
+  margin: 0 2rem 2rem;
+  padding: 0.8rem 1.2rem;
+}
+
+.container button {
+  width: 80%;
+  background-color: var(--color--red);
+  color: white;
+  padding: 14px 20px;
+  font-weight: 300;
+  font-family: var(--font-outfit-light);
+  font-size: 0.9rem;
+  margin: 0 2rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  /* border: 3px solid red; */
+}
+
+.container button:hover {
+  background: var(--color--white);
+  color: var(--color--semi-blue-black);
+}
+
+.container p {
+  color: var(--color--white);
+  font-family: var(--font-outfit-light);
+  font-size: 0.9rem;
+  padding: 0 0 5.6rem 5.6rem;
+}
+
+.container span {
+  color: var(--color--red);
+  margin: 0 0 0 0.5rem;
+  cursor: pointer;
+}
