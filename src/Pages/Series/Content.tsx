@@ -7,7 +7,7 @@ import Videos from './Videos';
 const Content = () =>{
     return (
         <div className="content">
-            <Input/>
+            <Input placeholder="Search for TV series"/>
             <h2>TV-series</h2>
             <Videos/>
         </div>

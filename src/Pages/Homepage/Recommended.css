@@ -1,7 +1,15 @@
 .recommended{
-    /* border: 1px solid white; */
+    border: 1px solid white;
     padding: 0;
-    /* width: 90.5%; */
+    /* width: 90vw; */
+}
+
+.recommended h1{
+font-style: normal;
+font-weight: 300;
+font-size: 2rem;
+line-height: 2.5rem;
+letter-spacing: -0.5px;
 }
 
 .recommended-items{
@@ -86,7 +94,10 @@ opacity: 0.5;
 
 .recommended-items .option .item-info .item-title{
 margin: 0;
-font-size: 1.17vw;
+font-style: normal;
+font-weight: 500;
+font-size: 1.125rem;
+line-height: 1.5rem;
 }
 
 

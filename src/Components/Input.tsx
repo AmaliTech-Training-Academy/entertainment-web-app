@@ -1,10 +1,10 @@
 import './Input.css'
 
-const Input = () => {
+const Input = (props:any) => {
     return (
         <form>
             <div className='search'></div>
-            <input type="text" placeholder="Search for TV series"/>
+            <input type="text" placeholder={props.placeholder}/>
         </form>
     )
 }

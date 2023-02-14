@@ -6,7 +6,7 @@ import BookmarkSVG from "../../Components/BookmarkButton"
 const Hero = () => {
     return (
         <header>
-            <Input/>
+            <Input placeholder = "Search for movies or TV series"/>
             <div className="trending">
                 <h1>Trending</h1>
                 <div className="trending-items">

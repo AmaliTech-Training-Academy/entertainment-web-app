@@ -5,7 +5,11 @@ header{
     margin-bottom: 2.5rem;
 }
 
-    
+header .trending{
+width: 100vw;
+}
+
+
 header .trending h1{
 font-weight: 300;
 font-size: 1.9vw;
