@@ -7,7 +7,7 @@
 .recommended h1{
 font-style: normal;
 font-weight: 300;
-font-size: 2.5vw;
+font-size: 2.107vw;
 line-height: 2.5rem;
 letter-spacing: -0.5px;
 margin-bottom: 2rem;
@@ -18,12 +18,11 @@ margin-bottom: 2rem;
     grid-template-columns: auto auto auto auto;
     position: relative;
     gap: 2rem;
-
 }
 
 .recommended-items .option{
     /* border: 1px solid white; */
-    height: 14rem;
+    /* height: 14rem; */
     width: 100%;
     position: relative;
     cursor: pointer;
@@ -46,7 +45,7 @@ margin-bottom: 2rem;
 }
 
 .recommended-items .bookmark-icon svg{
-    stroke: #ffffff;
+    stroke-width: #ffffff;
 }
 
 .recommended-items .option .image .large{
@@ -78,9 +77,10 @@ opacity: 0.5;
     margin-bottom: 5px;
     font-style: normal;
     font-weight: 300;
-    font-size: 2vw;
+    font-size: .9vw;
     line-height: 1rem;
     opacity: .75;
+    word-wrap: break-word;
 }
 
 .recommended-items .option .item-info .about img{
@@ -102,8 +102,9 @@ opacity: 0.5;
 margin: 0;
 font-style: normal;
 font-weight: 500;
-font-size: 1.125rem;
+font-size: 1.185vw;
 line-height: 1.5rem;
+word-wrap: break-word;
 }
 
 
@@ -113,6 +114,10 @@ line-height: 1.5rem;
         /* border: 1px solid white; */
         padding: 0;
         /* width: 97.5%; */
+    }
+
+    .recommended h1{
+        font-size: 2rem;
     }
     
     .recommended-items{
@@ -172,6 +177,7 @@ line-height: 1.5rem;
         display: flex;
         align-items: center;
         margin-bottom: 5px;
+        font-size: 1.9vw;
         /* box-shadow: 5px 10px 18px red; */
     }
     
@@ -193,10 +199,9 @@ line-height: 1.5rem;
     .recommended-items .option .item-info .item-title{
     margin: 0;
     font-weight: 500;
-font-size: 2.8vw;
-line-height: 23px;
-width: auto;
-    }   
+    font-size: 2.4vw;
+    line-height: 23px;
+    }    
 }
 
 @media screen and (max-width:440px) {
