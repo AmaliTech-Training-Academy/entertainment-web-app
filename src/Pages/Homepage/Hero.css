@@ -1,0 +1,211 @@
+header{
+    /* border: 1px solid white; */
+    /* width: 110vw; */
+    /* overflow-x: hidden; */
+    margin-bottom: 2.5rem;
+}
+
+header .trending{
+width: 90vw;
+}
+
+
+header .trending h1{
+font-weight: 300;
+font-size: 1.9vw;
+line-height: 2.5rem;
+letter-spacing: -0.5px;
+margin-bottom: 1.5rem;
+}
+
+.trending-items .bookmark-icon{
+    /* border: 1px solid white; */
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+header .trending .trending-items{
+    /* border: 1px solid white; */
+    display: flex;
+    position: relative;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    justify-content: space-between;
+}
+
+header .trending .trending-items .trend{
+    /* border: 1px solid white; */
+    /* width: 30rem; */
+    margin-right: 2.5rem;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+header .trending .trending-items div:nth-of-type(5){
+    margin-right: 0;
+}
+
+header .trending .trending-items .trend img{
+    height: 100%;
+}
+
+header .trending .trending-items .trend .large{
+    height: 14.4rem;
+    border-radius: .5rem;
+}
+
+
+header .trending .trending-items .trend .small{
+    display: none;
+}
+
+
+header .trending .trending-items .trend img:hover{
+    opacity: 0.5;
+}
+
+header .trending .trending-items .trend .item-info{
+    /* border: 1px solid white; */
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0;
+    /* width: 20rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+header .trending .trending-items .trend .item-info .about{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid white; */
+    margin-bottom: 4px;
+    opacity: 0.75;
+}
+
+header .trending .trending-items .trend .item-info .about img{
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-right: 0.4rem;
+    border-radius: 0;
+}
+
+
+header .trending .trending-items .trend .item-info .oval{
+    width: 3px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin: 0 .5rem;
+}
+
+.trending-items .trend .item-info .item-title{
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    /* border: 1px solid white; */
+    margin: 0;
+}
+
+@media screen and (max-width:850px) {
+    header .trending{
+        /* border: 1px solid; */
+        width: 97vw;
+    }
+
+    header .trending h1{
+        font-weight: 300;
+        font-size: 2rem;
+        line-height: 2.5rem;
+        letter-spacing: -0.5px;
+        }
+}
+
+@media screen and (max-width:440px) {
+    header .trending{
+        /* border: 1px solid; */
+        width: 96vw;
+    }
+
+    header .trending h1{
+        font-weight: 300;
+        font-size: 1.25rem;
+        line-height: 1.56rem;
+        letter-spacing: -0.5px;
+        }
+        
+        .trending-items .bookmark-icon{
+            /* border: 1px solid white; */
+            position: absolute;
+            top: .5rem;
+            right: .5rem;
+            width: 2rem;
+            height: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        
+
+    header .trending .trending-items .trend{
+        margin-right: 1rem;
+        }
+
+
+    header .trending .trending-items .trend .large{
+        display: none;
+    }
+    
+    
+    header .trending .trending-items .trend .small{
+        display: block;
+        width: 15rem;
+        height: 8.75rem;
+        border-radius: .5rem;
+    }
+
+    header .trending .trending-items .trend .item-info{
+        /* border: 1px solid white; */
+        position: absolute;
+        left: 1rem;
+        bottom: .5rem;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    header .trending .trending-items .trend .item-info .about{
+        display: flex;
+        align-items: center;
+        font-size: 0.75rem;
+        line-height: .9rem;
+        opacity: .75;
+        }
+    
+
+
+    .trending-items .trend .item-info .item-title{
+        font-weight: 500;
+        font-size: .9rem;
+        line-height: 1.18rem;
+        /* border: 1px solid white; */
+        margin: 0;
+    }
+
+    
+}

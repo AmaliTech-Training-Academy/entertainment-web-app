@@ -1,0 +1,21 @@
+.content{
+    /* border: 1px solid white; */
+    width: 100%;
+    padding: 2rem 0 0 2rem;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width:850px){
+    .content{
+        padding: 1.5rem;
+        width: 100%;
+        /* border: 1px solid; */
+    }
+}
+
+@media screen and (max-width:440px) {
+    .content{
+    padding: 1rem;
+    }
+}
+

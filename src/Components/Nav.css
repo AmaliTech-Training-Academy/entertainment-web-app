@@ -1,0 +1,202 @@
+nav{
+    /* border: 1px solid white; */
+    width: 6rem;
+    height: 91.5vh;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #161D2F;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.nav-items {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+}
+
+.nav-items .logo{
+    /* border: 1px solid white; */
+    width: 2rem;
+    height: 1.5rem;
+    background: url('/public/assets/logo.svg');
+    margin-bottom: 4.7rem;
+    background-size: cover;
+}
+
+nav a.active{
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(37deg) brightness(107%) contrast(101%);
+}
+
+nav .nav-items ul{
+    /* border: 1px solid white; */
+    color: aliceblue;
+    list-style: none;
+    padding: 0;
+    width: 1.25rem;
+    height: 12.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-items ul li{
+    height: 1.25rem;
+    /* border: 1px solid red; */
+}
+
+.nav-items ul .home{
+    background: url('../../public/assets/icon-nav-home.svg');
+    width: 1.25rem;
+    background-size: cover;
+}
+
+.nav-items ul .movies{
+    background: url('../../public/assets/icon-nav-movies.svg');
+    width: 1.25rem;
+    background-size: cover;
+}
+
+.nav-items ul .tv-series{
+    background: url('../../public/assets/icon-nav-tv-series.svg');
+    width: 1.25rem;
+    background-size: cover;
+}
+
+.nav-items ul .bookmarked{
+    background: url('../../public/assets/icon-nav-bookmark.svg');
+    width: 1.05rem;
+    background-size: cover;
+}
+
+
+.nav-items ul li:hover{
+    filter: brightness(0) saturate(100%) invert(59%) sepia(78%) saturate(5955%) hue-rotate(335deg) brightness(104%) contrast(102%);
+    }
+
+
+nav .user-avatar{
+    border: 1px solid white;
+    background: url('/public/assets/image-avatar.png');
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: cover;
+    margin-top: auto;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width:850px){
+    nav{
+        width: 94%;
+        height: 4.5rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;  
+        display: flex;
+        justify-content: space-between;
+        /* border: 1px solid; */
+    }
+    
+    .nav-items {
+        flex-direction: row;
+        height: 100%;
+        /* border: 1px solid; */
+        width: 63%;
+        height: 1.56rem;
+        justify-content: space-between;
+    }
+    
+    .nav-items .logo{
+        margin: 0;
+        height: 100%;
+    }
+    nav .nav-items ul{
+        width: 40%;
+        height: 1.25rem;
+        display: flex;
+        flex-direction: row; 
+        /* border: 1px solid; */
+        
+    }
+    nav .user-avatar{
+        margin-top: 0;
+        /* margin-left: 9.5rem; */
+    
+    }
+
+}
+@media only screen and (max-width:440px) {
+    
+    nav{
+        width: 100%;
+        height: 4.5rem;
+        border-radius: 0;
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        margin: 0;  
+        display: flex;
+        justify-content: space-between;
+        /* border: 1px solid; */
+    }
+    
+    .nav-items {
+        flex-direction: row;
+        height: 100%;
+        /* border: 1px solid; */
+        width: 70%;
+        height: 1.25rem;
+        justify-content: space-between;
+    }
+    
+    .nav-items .logo{
+        margin: 0;
+        width: 1.5rem;
+        height: 1.25rem;
+    }
+    nav .nav-items ul{
+        width: 50%;
+        height: 1rem;
+        display: flex;
+        flex-direction: row; 
+        /* border: 1px solid; */
+    }
+
+    .nav-items ul .home, 
+    .nav-items ul .movies, 
+    .nav-items ul .tv-series{
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .nav-items ul .bookmarked{
+        height: 1rem;
+        width: .85rem;
+    }
+
+    nav .user-avatar{
+        margin-top: 0;
+        height: 1.5rem;
+        width: 1.5rem;
+        /* margin-left: 9.5rem; */
+    
+    }
+
+}
+
+/* @media only screen and (max-width: 375px) {
+
+    nav .user-avatar{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top: 0;
+        margin-left:4.5rem;
+    }
+} */

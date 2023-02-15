@@ -1,0 +1,19 @@
+main{
+    /* border: 1px solid white; */
+    color: aliceblue;
+    /* height: 100vh; */
+    display: flex;
+}
+
+@media only screen and (max-width: 850px) and (min-width:480px){
+    main{
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 440px) and (min-width:320px){
+    main{
+        flex-direction: column;
+    }
+}
+
+
