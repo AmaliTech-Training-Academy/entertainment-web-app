@@ -50,8 +50,9 @@ app.use("/auth", authRoutes);
 app.use("/bookmark", bookmarkRoutes);
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/entertainmentDB")
-
+  .connect(
+    "mongodb+srv://entertainmentDB:entertainmentDB@cluster0.83b8aqh.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("Mongodb Database Created");
     mongoose;

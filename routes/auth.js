@@ -90,7 +90,7 @@ router.post("/signup", checkNotAuthenticated, async (req, res) => {
    
   } catch (err) {
     console.log(err);
-    res.status(400).json({ message: "Email already exist" });
+    res.status(402).json({ message: "Email already exist" });
     // res.status(200).json({ message: "signup" });
   }
 });
