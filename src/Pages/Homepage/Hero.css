@@ -15,6 +15,7 @@ font-weight: 300;
 font-size: 1.9vw;
 line-height: 2.5rem;
 letter-spacing: -0.5px;
+margin-bottom: 1.5rem;
 }
 
 .trending-items .bookmark-icon{
@@ -119,7 +120,7 @@ header .trending .trending-items .trend .item-info .oval{
 }
 
 @media screen and (max-width:850px) {
-    .trending{
+    header .trending{
         /* border: 1px solid; */
         width: 97vw;
     }
@@ -133,7 +134,7 @@ header .trending .trending-items .trend .item-info .oval{
 }
 
 @media screen and (max-width:440px) {
-    .trending{
+    header .trending{
         /* border: 1px solid; */
         width: 96vw;
     }
