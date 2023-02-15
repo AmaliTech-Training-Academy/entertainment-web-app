@@ -17,13 +17,12 @@ const schema = yup.object().shape({
     .min(8, "Password must be at least 8 characters")
     .max(32)
     .required("Can't be empty"),
-    passwordConfirmation: yup.string()
-     .oneOf([yup.ref('password'), null], 'Passwords must match')
+  passwordConfirmation: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match"),
 });
 
-
 const Signup = () => {
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -32,39 +31,42 @@ const Signup = () => {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState("");
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    axios.post("http://localhost:8080/auth/signup", 
-    { email: formData.email,
-      password: formData.password
-    }).then((res) => {
-      console.log(res.status, res);
-      if (res.status) {
-        navigate('/Login')
-      }
-      console.log("To Login Page");
-    })
-    .catch(err => {
-
-    });
+  const apiRequest = async (email, password) => {
+    // event.preventDefault();
+    axios
+      .post("http://localhost:8080/auth/signup", { email, password })
+      .then((res) => {
+        console.log(res.status, res);
+        if (res.status) {
+          navigate("/Login");
+        }
+        console.log("To Login Page");
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+        setApiError(err.response.data.message);
+        // throw err;
+      });
   };
 
   const handleSubmit = (event) => {
+    console.log("register");
     event.preventDefault();
-
     schema
       .validate(formData, { abortEarly: false })
-      .then((tak) => {
+      .then((data) => {
         // form is valid, do something with the data
-        console.log(tak);
+        apiRequest(data.email, data.password);
       })
       .catch((error) => {
         // validation failed, update the errors object
+        console.log(error.inner);
         setErrors(
           error.inner.reduce((errors, error) => {
             errors[error.path] = error.message;
@@ -74,10 +76,10 @@ const Signup = () => {
       });
   };
 
-
   return (
     <div className="main">
       <form action="" className="container" onSubmit={handleSubmit}>
+      <p> {apiError} </p>
         <h4>Sign Up</h4>
         <input
           type="email"
@@ -95,7 +97,7 @@ const Signup = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        {/* {errors.password && <p> {errors.password} </p>} */}
+        {errors.password && <p> {errors.password} </p>}
         <br />
         <input
           name="confirmPassword"
@@ -104,16 +106,13 @@ const Signup = () => {
           value={formData.confirmPassword}
           onChange={handleChange}
         />
-        {/* <p>{errors.confirmPassword?.message}</p> */}
+        {errors.confirmPassword && <p>{errors.message}</p>}
         <br />
-        <Link to="/Login">
-          <button type="submit" onClick={handleClick}>
-            Create an Account
-          </button>
-        </Link>
+        <button type="submit" value="submit">Create an Account</button>
+        {/* <Link to="/Login"></Link> */}
         <p>
           Already have an account?{" "}
-          <Link to="/">
+          <Link to="/Login">
             <span>Login</span>
           </Link>
         </p>

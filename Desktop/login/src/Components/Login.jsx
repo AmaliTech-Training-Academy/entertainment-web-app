@@ -19,6 +19,8 @@ const schema = yup.object().shape({
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [apiError, setApiError] = useState("");
+
 
   const navigate = useNavigate();
 
@@ -38,25 +40,24 @@ const Login = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleClick = (event) => {
-    event.preventDefault()
-    axios.post("http://localhost:8080/auth/login", 
-    {
-      email: formData.email,
-      password: formData.password
-    })
-    .then((res) => {
-      if (res.status === 200) {
-        navigate('/');
-      } else {
-        console.log("To the HomePage")
+  const apiRequest = async (email, password) => {
+    // event.preventDefault();
+    axios
+      .post("http://localhost:8080/auth/login", { email, password })
+      .then((res) => {
+        console.log(res.status, res);
+        if (res.status) {
+          navigate("/");
+        }
+        console.log("To HomePage");
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+        setApiError(err.response.data.message);
+        // throw err;
+      });
+  };
 
-      }
-    })
-    .catch(err => {
-    });
-  
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -83,6 +84,7 @@ const Login = () => {
       {" "}
       <div className="main">
         <form action=" " className="container" onSubmit={handleSubmit}>
+        <p> {apiError} </p>
           <h4>Login</h4>
           <input
             type="email"
@@ -100,11 +102,11 @@ const Login = () => {
             value={formData.password}
             onChange={handleChange}
           />
-          {errors.password && <p className="pass"> {errors.password} </p>}
+           {errors.password && <p> {errors.password} </p>}
           <br />
 
           <Link to="/">
-            <button type="submit" onClick={handleClick}>Login to your account</button>
+            <button type="submit">Login to your account</button>
           </Link>
           
           <p>
