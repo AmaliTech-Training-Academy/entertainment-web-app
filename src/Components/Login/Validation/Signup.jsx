@@ -24,24 +24,33 @@ const schema = yup.object().shape({
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState("");
 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     confirmPassword: "",
   });
-  const [errors, setErrors] = useState({});
-  const [apiError, setApiError] = useState("");
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-
   const apiRequest = async (email, password) => {
     // event.preventDefault();
     axios
-      .post("https://entertainment-web-app-signup-api.onrender.com/", { email, password })
+      .post(
+        "https://entertainment-web-app-signup-api.onrender.com/auth/signup",
+        // "http://localhost:4000/auth/signup",
+        {
+          headers: {
+            // "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          data: { email, password },
+        }
+      )
       .then((res) => {
         console.log(res.status, res);
         if (res.status) {
@@ -54,27 +63,9 @@ const Signup = () => {
         setApiError(err.response.data.message);
         // throw err;
       });
-    }
-
-  // const handleClick = (event) => {
-  //   event.preventDefault();
-  //   axios.post("https://entertainment-web-app-signup-api.onrender.com/", 
-  //   { email: formData.email,
-  //     password: formData.password
-  //   }).then((res) => {
-  //     console.log(res.status, res);
-  //     if (res.status) {
-  //       navigate('/log-in')
-  //     }
-  //     console.log("To Login Page");
-  //   })
-  //   .catch(err => {
-
-  //   });
-  // };
+  };
 
   const handleSubmit = (event) => {
-    console.log("register");
     event.preventDefault();
     schema
       .validate(formData, { abortEarly: false })
@@ -98,7 +89,7 @@ const Signup = () => {
     <div className="form">
       <div className="logo"></div>
       <form action="" className="container" onSubmit={handleSubmit}>
-      <p> {apiError} </p>
+        <p> {apiError} </p>
         <h4>Sign Up</h4>
         <input
           type="email"
@@ -130,9 +121,7 @@ const Signup = () => {
         {/* <Link to="/log-in">
           
         </Link> */}
-        <button type="submit">
-            Create an Account
-          </button>
+        <button type="submit">Create an Account</button>
         <p>
           Already have an account?{" "}
           <Link to="/log-in">

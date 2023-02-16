@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import * as yup from "yup";
-import {Route, Routes} from "react-router-dom"; 
+import { Route, Routes } from "react-router-dom";
 // import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup"
 import { Link, useNavigate } from "react-router-dom";
@@ -19,23 +19,24 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [apiError, setApiError] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [apiError, setApiError] = useState("");
 
   const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState("");
 
   async function submit(e) {
     e.preventDefault();
     const data = {
-      email,
-      password,
+      email: "",
+      password: "",
     };
     console.log({ data });
   }
 
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -44,7 +45,16 @@ const Login = () => {
   const apiRequest = async (email, password) => {
     // event.preventDefault();
     axios
-      .post("https://entertainment-web-app-signup-api.onrender.com/", { email, password })
+      .post(
+        "https://entertainment-web-app-signup-api.onrender.com/auth/login",
+        {
+          headers: {
+            // "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          data: { email, password },
+        }
+      )
       .then((res) => {
         console.log(res.status, res);
         if (res.status) {
@@ -66,6 +76,7 @@ const Login = () => {
       .then((res) => {
         // form is valid, do something with the data
         console.log(res);
+        apiRequest(res.email, res.password);
       })
       .catch((error) => {
         // validation failed, update the errors object
@@ -81,10 +92,10 @@ const Login = () => {
   return (
     <div className="login-content">
       {" "}
-      <Navbar/>
+      <Navbar />
       <div className="form">
         <form action=" " className="container" onSubmit={handleSubmit}>
-        <p> {apiError} </p>
+          <p> {apiError} </p>
           <h4>Login</h4>
           <input
             type="email"
@@ -105,10 +116,10 @@ const Login = () => {
           {errors.password && <p> {errors.password} </p>}
           <br />
 
-          <Link to="/">
-            <button type="submit">Login to your account</button>
-          </Link>
-          
+          {/* <Link to="/">
+          </Link> */}
+          <button type="submit">Login to your account</button>
+
           <p>
             Don't have an account?{" "}
             <Link to="/sign-up">
@@ -119,6 +130,6 @@ const Login = () => {
       </div>
     </div>
   );
-  };
+};
 
 export default Login;
