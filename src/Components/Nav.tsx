@@ -26,8 +26,10 @@ const Navbar = () => {
                     </NavLink>                     
                 </ul>
                 </div>
+                <NavLink to="/log-in" className="user">
                 <div className='user-avatar'>
                 </div>
+                </NavLink>
         </nav>
 
     )

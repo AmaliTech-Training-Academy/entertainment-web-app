@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import * as yup from "yup";
+import {Route, Routes} from "react-router-dom"; 
 // import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup"
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
 import axios from "axios";
+import Navbar from "../../Nav";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid Email").required("Email is required"),
@@ -20,7 +22,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [apiError, setApiError] = useState("");
-
 
   const navigate = useNavigate();
 
@@ -40,11 +41,10 @@ const Login = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-src/Components/login/Login.jsx
   const apiRequest = async (email, password) => {
     // event.preventDefault();
     axios
-      .post("http://localhost:8080/auth/login", { email, password })
+      .post("https://entertainment-web-app-signup-api.onrender.com/", { email, password })
       .then((res) => {
         console.log(res.status, res);
         if (res.status) {
@@ -59,26 +59,8 @@ src/Components/login/Login.jsx
       });
   };
 
-  const handleClick = (event) => {
-    event.preventDefault()
-    axios.post("https://entertainment-web-app-signup-api.onrender.com/", 
-    {
-      email: formData.email,
-      password: formData.password
-    })
-    .then((res) => {
-      if (res.status === 200) {
-        navigate('/');
-      } else {
-        console.log("To the HomePage")
-      }})
-    }
-    }
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
-
     schema
       .validate(formData, { abortEarly: false })
       .then((res) => {
@@ -97,8 +79,9 @@ src/Components/login/Login.jsx
   };
 
   return (
-    <>
+    <div className="login-content">
       {" "}
+      <Navbar/>
       <div className="form">
         <form action=" " className="container" onSubmit={handleSubmit}>
         <p> {apiError} </p>
@@ -125,10 +108,6 @@ src/Components/login/Login.jsx
           <Link to="/">
             <button type="submit">Login to your account</button>
           </Link>
-
-          <Link>
-            <button type="submit" onClick={handleClick}>Login to your account</button>
-          </Link>  
           
           <p>
             Don't have an account?{" "}
@@ -138,7 +117,8 @@ src/Components/login/Login.jsx
           </p>
         </form>
       </div>
-    </>
+    </div>
   );
+  };
 
 export default Login;

@@ -36,16 +36,16 @@ const Signup = () => {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-}
+
 
   const apiRequest = async (email, password) => {
     // event.preventDefault();
     axios
-      .post("http://localhost:8080/auth/signup", { email, password })
+      .post("https://entertainment-web-app-signup-api.onrender.com/", { email, password })
       .then((res) => {
         console.log(res.status, res);
         if (res.status) {
-          navigate("/Login");
+          navigate("/log-in");
         }
         console.log("To Login Page");
       })
@@ -56,22 +56,22 @@ const Signup = () => {
       });
     }
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    axios.post("https://entertainment-web-app-signup-api.onrender.com/", 
-    { email: formData.email,
-      password: formData.password
-    }).then((res) => {
-      console.log(res.status, res);
-      if (res.status) {
-        navigate('/')
-      }
-      console.log("To Login Page");
-    })
-    .catch(err => {
+  // const handleClick = (event) => {
+  //   event.preventDefault();
+  //   axios.post("https://entertainment-web-app-signup-api.onrender.com/", 
+  //   { email: formData.email,
+  //     password: formData.password
+  //   }).then((res) => {
+  //     console.log(res.status, res);
+  //     if (res.status) {
+  //       navigate('/log-in')
+  //     }
+  //     console.log("To Login Page");
+  //   })
+  //   .catch(err => {
 
-    });
-  };
+  //   });
+  // };
 
   const handleSubmit = (event) => {
     console.log("register");
@@ -127,12 +127,12 @@ const Signup = () => {
         />
         {errors.confirmPassword && <p>{errors.message}</p>}
         <br />
-  
-        <Link to="/login">
-          <button type="submit" onClick={handleClick}>
+        {/* <Link to="/log-in">
+          
+        </Link> */}
+        <button type="submit">
             Create an Account
           </button>
-        </Link>
         <p>
           Already have an account?{" "}
           <Link to="/log-in">
@@ -142,5 +142,6 @@ const Signup = () => {
       </form>
     </div>
   );
+};
 
 export default Signup;

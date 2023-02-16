@@ -5,8 +5,8 @@ import Home from './Pages/Homepage/Home';
 import Movies from './Pages/Movies/Movies';
 import Series from './Pages/Series/Series';
 import {Route, Routes} from "react-router-dom"; 
-import Signup from './Components/Login/Validation/Signup';
 import Login from './Components/Login/Validation/Login';
+import Signup from './Components/Login/Validation/Signup';
 
 function App() {
   return (

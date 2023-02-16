@@ -5,6 +5,9 @@ main{
     display: flex;
     width: 100%;
     position: relative;
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background: #10141E;
 }
 
 @media screen and (max-width:850px){
