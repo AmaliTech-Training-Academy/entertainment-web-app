@@ -1,6 +1,6 @@
 # entertainment-web-app | README Guide
 
-![Amalitech](amalitech.jpeg)
+![Amalitech](/public/assets/amalitech.jpeg)
 
 ## Table of contents
 
