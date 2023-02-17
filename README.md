@@ -29,11 +29,11 @@ Entertainment web app is a web application that enables users to:
 
 ### Screenshot
 
-<img src="/sign-up.png" width=800px height=329x>
-<img src="/login.png" width=800px height=329x>
-<img src="/home.png" width=800px height=1121px>
-<img src="/tv-series.png" width=800px height=729px>
-<img src="/movies.png" width=800px height=729x>
+<img src="/public/assets/sign-up.png" width=800px height=329x>
+<img src="/public/assets/login.png" width=800px height=329x>
+<img src="/public/assets/home.png" width=800px height=1121px>
+<img src="/public/assets/tv-series.png" width=800px height=729px>
+<img src="/public/assets/movies.png" width=800px height=729x>
 
 
 ### Live Project Link 
