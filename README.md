@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# entertainment-web-app | README Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Amalitech](/public/assets/amalitech.jpeg)
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+    - [Project Description](#project-description)
+    - [Screenshots](#screenshots)
+    - [Live Project Link](#live-project-link)
+- [Process](#process)
+    - [Built with](#built-with)
+    - [Lessons Learned](#lessons-learned)
+- [Participants](#participants)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Project Discription
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Entertainment web app is a web application that enables users to:
 
-### `npm test`
+1. View the optimal layout for the app depending on their device's screen size.
+2. See hover states for all interactive elements on the page.
+3. Navigate between Home, Movies, TV Series, and Bookmarked Shows pages.
+4. Add/Remove bookmarks from all movies and TV series.
+5. Search for relevant shows on all pages.
+6. Visit the app URL and register with a valid email address and my desired password.
+7. Log in into their account after my registration.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+<img src="/public/assets/sign-up.png" width=800px height=329x>
+<img src="/public/assets/login.png" width=800px height=329x>
+<img src="/public/assets/home.png" width=800px height=1121px>
+<img src="/public/assets/tv-series.png" width=800px height=729px>
+<img src="/public/assets/movies.png" width=800px height=729x>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Live Project Link 
+https://entertainment-web.netlify.app/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Process
 
-### `npm run eject`
+### Built with
+- CSS - Use styled components.
+- React Js with TypeScript.
+- Node.js / Express.js.
+- MongoDB.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Lessons Learned
+- Learnt how to use data.json file.
+- Learnt api's.
+- Learnt react hooks.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    
+## Participants
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[@benedictarhin-max] (https://github.com/benedictarhin-max) <br>
+[@ericmanu] (https://github.com/ericmanu) <br>
+[@Godbless-Abbew] (https://github.com/Godbless-Abbew) <br>
+[@Wisdom-Eleeza] (https://github.com/Wisdom-Eleeza)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
