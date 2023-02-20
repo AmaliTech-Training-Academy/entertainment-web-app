@@ -1,0 +1,11 @@
+.bkmk{
+    background: #ffffff;
+    display: flex;
+    border: 1px solid black;
+    height: 100vh;
+    background-color: #10141E;
+}
+
+.bookmarks{
+margin: 2rem;
+}

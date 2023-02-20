@@ -20,9 +20,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
 }
 
 .form{
+  background: #10141E;
   position: relative;
   /* border: 1px solid white; */
   padding: 0;

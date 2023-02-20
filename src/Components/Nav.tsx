@@ -8,7 +8,7 @@ const Navbar = () => {
                 <div className='logo'>
                 </div>
                 <ul className='links'>
-                    <NavLink to="/">
+                    <NavLink to="/home">
                     <li className='home'>
                     </li>   
                     </NavLink>
@@ -26,7 +26,7 @@ const Navbar = () => {
                     </NavLink>                     
                 </ul>
                 </div>
-                <NavLink to="/log-in" className="user">
+                <NavLink to="/" className="user">
                 <div className='user-avatar'>
                 </div>
                 </NavLink>

@@ -1,6 +1,8 @@
 import './Content.css'
-import Hero from '../Homepage/Hero';
+import Hero from './Hero.jsx';
 import Options from './Recommended';
+// import { useState } from 'react';
+
 
 
 const Content = () =>{

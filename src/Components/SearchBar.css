@@ -1,7 +1,8 @@
 form{
-    /* border: 1px solid white; */
+    border: 1px solid white;
     height: 3rem;
     display: flex;
+    justify-content: row-reverse;
     align-items: center;
     margin-bottom: 2rem;
 }
@@ -35,13 +36,20 @@ input[type=text]:focus{
     border-bottom: 1px solid #5A698F;
     color: #ffffff;
     opacity: 1;
+    background: transparent;
+}
+
+input[internal-autofill-selected] {
+    appearance: menulist-button;
+    background-color: transparent;
+    color: #ffffff;
 }
 
 input[type=text]:hover{
     cursor: pointer;
 }
 
-@media only screen and (max-width:420px) and (min-width:320px){
+@media only screen and (max-width:440px){
     form .search{
         height: 1.5rem;
         width: 2rem;
